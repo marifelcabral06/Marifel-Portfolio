@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Marifel Cabral</title>
+  <meta name="description" content="Web development articles by Marifel Cabral — insights on coding, growth mindset, and developer productivity." />
+  <meta name="keywords" content="Marifel Cabral Blog, Web Development Articles, Developer Tips, Coding Mindset" />
+  <meta name="author" content="Marifel Cabral" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://marifelcabral.com/blog.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    .dark {
+      --accent:        #3b82f6;
+      --bg:            #070d1a;
+      --bg-card:       rgba(13,24,41,0.70);
+      --bg-header:     rgba(7,13,26,0.80);
+      --border:        rgba(59,130,246,0.18);
+      --border-card:   rgba(59,130,246,0.13);
+      --text-primary:  #ffffff;
+      --text-secondary:rgba(255,255,255,0.56);
+      --text-muted:    rgba(255,255,255,0.30);
+      --orb1:          rgba(59,130,246,0.20);
+      --orb2:          rgba(99,102,241,0.13);
+      --glow:          linear-gradient(90deg,transparent,rgba(59,130,246,0.45),transparent);
+      --footer-bg:     rgba(5,10,20,0.98);
+      --footer-border: rgba(59,130,246,0.1);
+      --blockquote-bg: rgba(59,130,246,0.07);
+    }
+    html:not(.dark) {
+      --accent:        #2563eb;
+      --bg:            #f0f4fb;
+      --bg-card:       rgba(255,255,255,0.92);
+      --bg-header:     rgba(240,244,251,0.88);
+      --border:        rgba(37,99,235,0.16);
+      --border-card:   rgba(37,99,235,0.11);
+      --text-primary:  #0d1829;
+      --text-secondary:#374151;
+      --text-muted:    #9ca3af;
+      --orb1:          rgba(59,130,246,0.09);
+      --orb2:          rgba(99,102,241,0.06);
+      --glow:          linear-gradient(90deg,transparent,rgba(37,99,235,0.22),transparent);
+      --footer-bg:     #e2e8f4;
+      --footer-border: rgba(37,99,235,0.12);
+      --blockquote-bg: rgba(37,99,235,0.06);
+    }
+
+    * { box-sizing:border-box; }
+    body { background:var(--bg);color:var(--text-primary);overflow-x:hidden;font-family:'Montserrat',sans-serif;transition:background 0.4s,color 0.4s; }
+
+    .orb { position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;animation:drift 12s ease-in-out infinite alternate; }
+    .orb-1 { width:600px;height:600px;background:radial-gradient(circle,var(--orb1),transparent 70%);top:-200px;left:-100px; }
+    .orb-2 { width:500px;height:500px;background:radial-gradient(circle,var(--orb2),transparent 70%);bottom:-100px;right:0;animation-delay:-4s; }
+    @keyframes drift { from{transform:translate(0,0)scale(1)} to{transform:translate(40px,30px)scale(1.05)} }
+
+    header { background:var(--bg-header);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background 0.4s,border-color 0.4s; }
+
+    .nav-pill { position:relative;padding-bottom:4px;font-size:0.75rem;letter-spacing:0.12em;font-weight:500;color:var(--text-secondary);transition:color 0.25s; }
+    .nav-pill::after { content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--accent);transition:width 0.3s ease; }
+    .nav-pill:hover { color:var(--text-primary); }
+    .nav-pill:hover::after,.nav-pill.active::after { width:100%; }
+    .nav-pill.active { color:var(--text-primary); }
+
+    .theme-btn { width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--border);color:var(--text-secondary);transition:all 0.3s;font-size:0.8rem;background:transparent;cursor:pointer; }
+    .theme-btn:hover { border-color:var(--accent);color:var(--accent); }
+
+    .glow-line { height:1px;background:var(--glow); }
+
+    /* Article */
+    .article-block { max-width:680px;margin:0 auto; }
+
+    .prose p { font-size:0.9rem;line-height:1.95;color:var(--text-secondary);font-weight:300;margin-bottom:1rem;font-family:'Montserrat',sans-serif; }
+    .prose h2 { font-size:1.15rem;font-weight:700;color:var(--text-primary);margin:2rem 0 0.75rem;font-family:'Montserrat',sans-serif; }
+    .prose ul { margin:0.5rem 0 1.2rem;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px; }
+    .prose ul li { font-size:0.87rem;line-height:1.8;color:var(--text-secondary);font-weight:300;display:flex;gap:10px;align-items:flex-start;font-family:'Montserrat',sans-serif; }
+    .prose ul li::before { content:'';width:5px;height:5px;min-width:5px;border-radius:50%;background:var(--accent);margin-top:9px; }
+    .prose blockquote { border-left:3px solid var(--accent);padding:14px 20px;margin:1.5rem 0;border-radius:0 8px 8px 0;background:var(--blockquote-bg);font-size:0.9rem;font-weight:500;font-style:italic;color:var(--text-primary);line-height:1.75;font-family:'Montserrat',sans-serif; }
+    .prose hr { border:none;height:1px;background:var(--border-card);margin:2rem 0; }
+    .prose strong { color:var(--text-primary);font-weight:600; }
+
+    .social-icon { width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--border);color:var(--text-muted);font-size:0.88rem;transition:all 0.25s; }
+    .social-icon:hover { border-color:var(--accent);color:var(--accent);transform:translateY(-3px); }
+    footer { background:var(--footer-bg);border-top:1px solid var(--footer-border);transition:background 0.4s,border-color 0.4s; }
+
+    ::-webkit-scrollbar { width:4px; }
+    ::-webkit-scrollbar-track { background:var(--bg); }
+    ::-webkit-scrollbar-thumb { background:rgba(59,130,246,0.35);border-radius:2px; }
+  </style>
+</head>
+<body>
+
+  <div style="position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;">
+    <div class="orb orb-1"></div><div class="orb orb-2"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 md:px-20 py-5">
+    <a href="index.html">
+      <img src="assets/images/logo.png" class="h-10 w-auto block dark:hidden" alt="Logo">
+      <img src="assets/images/logo(dark).png" class="h-10 w-auto hidden dark:block" alt="Logo">
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="index.html"   class="nav-pill">HOME</a>
+      <a href="about.html"   class="nav-pill">ABOUT ME</a>
+      <a href="project.html" class="nav-pill">PROJECTS</a>
+       <a href="testimonials.html"  class="nav-pill">TESTIMONIALS
+   <a href="blog.html" class="nav-pill active">BLOG</a>
+      <a href="resume.html"  class="nav-pill">RESUME</a>
+   
+      <a href="contact.html" class="nav-pill">CONTACT</a>
+    
+    </nav>
+    <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+      <i id="themeIcon" class="fas fa-moon"></i>
+    </button>
+  </header>
+
+  <main style="padding-top:100px;">
+    <section class="px-10 md:px-20 pt-10 pb-32">
+
+      <!-- PAGE TITLE -->
+      <div class="article-block mb-16" data-aos="fade-up">
+        <h1 style="font-family:'Montserrat',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:var(--text-primary);margin-bottom:10px;line-height:1.1;">
+          My <em style="color:var(--accent);font-style:italic;">Blog</em>
+        </h1>
+        <p style="font-family:'Montserrat',sans-serif;color:var(--text-secondary);font-size:0.88rem;line-height:1.8;font-weight:300;">
+          Thoughts on web development, growth, and lessons learned along the way.
+        </p>
+      </div>
+
+      <div class="glow-line mb-16 opacity-25" style="max-width:680px;margin-left:auto;margin-right:auto;"></div>
+
+      <!-- ARTICLE 1 -->
+      <article class="article-block mb-24" data-aos="fade-up">
+        <p style="font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:0.18em;color:var(--accent);text-transform:uppercase;font-weight:600;margin-bottom:10px;">Growth Mindset · Web Development · SEO</p>
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:var(--text-primary);margin-bottom:8px;line-height:1.2;">Why Accepting Failure Made Me a Better Web Developer</h2>
+        <p style="font-family:'Montserrat',sans-serif;font-size:0.63rem;color:var(--text-muted);margin-bottom:28px;">Marifel Cabral · 2025 · 4 min read</p>
+
+        <div class="prose">
+          <p>Every web developer talks about success — landing clients, building beautiful websites, mastering JavaScript frameworks. But what people don't talk about enough is <strong>failure</strong>.</p>
+          <p>As a web developer, I learned that accepting errors and failures is one of the most powerful tools for growth. Debugging mistakes, broken layouts, and failed deployments are not setbacks — they are stepping stones.</p>
+
+          <h2>My First Big Web Development Failure</h2>
+          <p>I remember launching my first client website. I was confident. The design looked perfect on my laptop. But when the client opened it on mobile? The layout was broken. Text overlapped images. Buttons didn't work properly.</p>
+          <p>Instead of quitting or blaming tools, I decided to:</p>
+          <ul>
+            <li>Review my CSS</li>
+            <li>Study responsive web design</li>
+            <li>Learn about media queries</li>
+            <li>Test on multiple screen sizes</li>
+          </ul>
+          <p>That failure pushed me to truly understand <strong>responsive web development</strong>.</p>
+          <hr>
+
+          <h2>Debugging Errors Is Part of the Process</h2>
+          <p>In web development, errors are normal — 404 errors, JavaScript console errors, database connection issues, API failures. At first, errors feel frustrating. But experienced developers know:</p>
+          <blockquote>Every error message is a lesson in disguise.</blockquote>
+          <p>Instead of avoiding problems, I started asking: What caused this bug? How can I prevent it next time? This mindset improved my problem-solving skills dramatically.</p>
+          <hr>
+
+          <h2>Growth Comes From Mistakes</h2>
+          <p>The best developers aren't the ones who never fail. They're the ones who test carefully, learn from debugging, and refactor messy code. Failure taught me patience, attention to detail, and the importance of continuous learning.</p>
+          <hr>
+
+          <h2>SEO Tip: Learn From Analytics Too</h2>
+          <p>Failure also applies to <strong>SEO and website performance</strong>. Sometimes a website doesn't rank, traffic drops, or users leave quickly. Instead of giving up, analyze page speed, mobile optimization, keyword usage, and user experience. Data-driven improvements turn failure into growth.</p>
+          <hr>
+
+          <h2>Conclusion</h2>
+          <p>If you're starting your journey as a web developer, remember: Failure is not the opposite of success — it is part of it.</p>
+          <blockquote>Accept failure. Learn from it. Grow because of it.</blockquote>
+        </div>
+      </article>
+
+      <div class="glow-line mb-16 opacity-25" style="max-width:680px;margin-left:auto;margin-right:auto;"></div>
+
+      <!-- ARTICLE 2 -->
+      <article class="article-block" data-aos="fade-up">
+        <p style="font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:0.18em;color:var(--accent);text-transform:uppercase;font-weight:600;margin-bottom:10px;">Productivity · Developer Life · Web Development</p>
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:var(--text-primary);margin-bottom:8px;line-height:1.2;">Why Taking a Break Can Make You a Better Web Developer</h2>
+        <p style="font-family:'Montserrat',sans-serif;font-size:0.63rem;color:var(--text-muted);margin-bottom:28px;">Marifel Cabral · 2025 · 4 min read</p>
+
+        <div class="prose">
+          <p>In web development, hustle culture is everywhere. Build more. Code more. Learn more frameworks. But here's a secret: <strong>Taking a break can actually make you a better web developer.</strong></p>
+
+          <h2>Burnout in Web Development Is Real</h2>
+          <p>There was a time I coded for 10–12 hours straight — building websites, fixing bugs, learning React, studying SEO. At first, I felt productive. But then I started making more mistakes, my creativity dropped, and I felt mentally exhausted.</p>
+          <p>Burnout affects many web developers, especially freelancers and beginners trying to prove themselves.</p>
+          <hr>
+
+          <h2>Why Breaks Improve Coding Performance</h2>
+          <p>When you step away from your screen, your brain processes problems subconsciously. You return with fresh ideas and notice mistakes you missed before. Some of my best solutions came after:</p>
+          <ul>
+            <li>Taking a walk</li>
+            <li>Sleeping on it</li>
+            <li>Exercising</li>
+            <li>Talking with friends</li>
+          </ul>
+          <hr>
+
+          <h2>The Science Behind Taking Breaks</h2>
+          <p>Short breaks reduce mental fatigue, improve focus, and boost creativity. Even the <strong>Pomodoro Technique</strong> (25 minutes work, 5 minutes break) can improve development efficiency.</p>
+          <blockquote>Sustainable productivity beats nonstop coding every time.</blockquote>
+          <hr>
+
+          <h2>Practical Tips for Developers</h2>
+          <ul>
+            <li>Take a 5–10 minute break every hour</li>
+            <li>Avoid coding late at night every day</li>
+            <li>Step outside when stuck on a bug</li>
+            <li>Separate work time and personal time</li>
+            <li>Schedule at least one full rest day per week</li>
+          </ul>
+          <hr>
+
+          <h2>Conclusion</h2>
+          <p>Web development is a marathon, not a sprint. Taking breaks doesn't mean you're lazy — it means you're building long-term success.</p>
+          <blockquote>Work hard. But rest smart.</blockquote>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="px-10 md:px-20 py-14">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+      <div>
+        <img src="assets/images/logo.png" class="h-10 w-auto block dark:hidden" alt="Logo">
+        <img src="assets/images/logo(dark).png" class="h-10 w-auto hidden dark:block" alt="Logo">
+      </div>
+      <nav class="flex gap-8 flex-wrap justify-center">
+        <a href="index.html"   class="nav-pill">HOME</a>
+      <a href="about.html"   class="nav-pill active">ABOUT ME</a>
+      <a href="project.html" class="nav-pill">PROJECTS</a>
+       <a href="testimonials.html"  class="nav-pill">TESTIMONIALS
+   <a href="blog.html" class="nav-pill active">BLOG</a>
+      <a href="resume.html"  class="nav-pill">RESUME</a>
+   
+      <a href="contact.html" class="nav-pill">CONTACT</a>
+        
+      </nav>
+      <div class="flex gap-3">
+        <a href="https://www.facebook.com/MarifelCabral/"   class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/mrfl_c"          class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/marifelcabral06"         class="social-icon"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/marifelcabral/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="glow-line my-10 opacity-20"></div>
+    <div class="text-center">
+      <p style="font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:0.12em;color:var(--text-muted);">© 2025 MARIFEL CABRAL · ALL RIGHTS RESERVED</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration:850, once:true, easing:'ease-out-cubic' });
+    const html = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+    function applyTheme(dark) {
+      if (dark) { html.classList.add('dark'); icon.className='fas fa-sun'; localStorage.setItem('theme','dark'); }
+      else { html.classList.remove('dark'); icon.className='fas fa-moon'; localStorage.setItem('theme','light'); }
+    }
+    applyTheme(!localStorage.getItem('theme') || localStorage.getItem('theme')==='dark');
+    toggle.addEventListener('click', () => applyTheme(!html.classList.contains('dark')));
+  </script>
+</body>
+</html>

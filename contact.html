@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Marifel Cabral</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    .dark {
+      --accent:        #3b82f6;
+      --bg:            #070d1a;
+      --bg-card:       rgba(13,24,41,0.70);
+      --bg-header:     rgba(7,13,26,0.80);
+      --border:        rgba(59,130,246,0.18);
+      --border-card:   rgba(59,130,246,0.13);
+      --text-primary:  #ffffff;
+      --text-secondary:rgba(255,255,255,0.56);
+      --text-muted:    rgba(255,255,255,0.30);
+      --orb1:          rgba(59,130,246,0.22);
+      --orb2:          rgba(99,102,241,0.15);
+      --orb3:          rgba(240,192,96,0.08);
+      --glow:          linear-gradient(90deg,transparent,rgba(59,130,246,0.5),transparent);
+      --footer-bg:     rgba(5,10,20,0.98);
+      --footer-border: rgba(59,130,246,0.1);
+      --input-bg:      rgba(13,24,41,0.8);
+      --input-border:  rgba(59,130,246,0.2);
+    }
+    html:not(.dark) {
+      --accent:        #2563eb;
+      --bg:            #f0f4fb;
+      --bg-card:       rgba(255,255,255,0.92);
+      --bg-header:     rgba(240,244,251,0.88);
+      --border:        rgba(37,99,235,0.16);
+      --border-card:   rgba(37,99,235,0.11);
+      --text-primary:  #0d1829;
+      --text-secondary:#374151;
+      --text-muted:    #9ca3af;
+      --orb1:          rgba(59,130,246,0.09);
+      --orb2:          rgba(99,102,241,0.06);
+      --orb3:          rgba(240,192,96,0.04);
+      --glow:          linear-gradient(90deg,transparent,rgba(37,99,235,0.22),transparent);
+      --footer-bg:     #e2e8f4;
+      --footer-border: rgba(37,99,235,0.12);
+      --input-bg:      rgba(255,255,255,0.95);
+      --input-border:  rgba(37,99,235,0.2);
+    }
+
+    * { box-sizing:border-box; }
+    body { background:var(--bg);color:var(--text-primary);overflow-x:hidden;font-family:'Montserrat',sans-serif;transition:background 0.4s,color 0.4s; }
+    body::before { content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.018;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    .orb { position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;animation:drift 12s ease-in-out infinite alternate; }
+    .orb-1 { width:600px;height:600px;background:radial-gradient(circle,var(--orb1),transparent 70%);top:-200px;left:-100px; }
+    .orb-2 { width:500px;height:500px;background:radial-gradient(circle,var(--orb2),transparent 70%);bottom:-100px;right:0;animation-delay:-4s; }
+    .orb-3 { width:350px;height:350px;background:radial-gradient(circle,var(--orb3),transparent 70%);top:40%;left:45%;animation-delay:-7s; }
+    @keyframes drift { from{transform:translate(0,0)scale(1)} to{transform:translate(40px,30px)scale(1.05)} }
+
+    header { background:var(--bg-header);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background 0.4s,border-color 0.4s; }
+
+    .nav-pill { position:relative;padding-bottom:4px;font-size:0.75rem;letter-spacing:0.12em;font-weight:500;color:var(--text-secondary);transition:color 0.25s;font-family:'Montserrat',sans-serif; }
+    .nav-pill::after { content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--accent);transition:width 0.3s ease; }
+    .nav-pill:hover { color:var(--text-primary); }
+    .nav-pill:hover::after,.nav-pill.active::after { width:100%; }
+    .nav-pill.active { color:var(--text-primary); }
+
+    .theme-btn { width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--border);color:var(--text-secondary);transition:all 0.3s;font-size:0.8rem;background:transparent;cursor:pointer; }
+    .theme-btn:hover { border-color:var(--accent);color:var(--accent); }
+
+    .glow-line { height:1px;background:var(--glow); }
+
+    .eyebrow { font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:0.25em;color:var(--accent);text-transform:uppercase;display:flex;align-items:center;gap:10px;font-weight:600; }
+    .eyebrow::before { content:'';display:block;width:28px;height:1px;background:var(--accent); }
+
+    /* Contact Info Items */
+    .contact-item {
+      display:flex;align-items:center;gap:16px;
+      padding:16px 20px;border-radius:16px;
+      background:var(--bg-card);border:1px solid var(--border-card);
+      backdrop-filter:blur(12px);transition:all 0.3s;
+    }
+    .contact-item:hover { border-color:rgba(59,130,246,0.4);transform:translateX(6px); }
+    .contact-icon {
+      width:44px;height:44px;border-radius:12px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);
+      color:var(--accent);font-size:1rem;
+    }
+    .contact-label { font-size:0.62rem;letter-spacing:0.2em;color:var(--text-muted);text-transform:uppercase;font-weight:600;margin-bottom:3px; }
+    .contact-value { font-size:0.88rem;color:var(--text-primary);font-weight:500; }
+
+    /* Social Icons */
+    .social-icon { width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--border);color:var(--text-muted);font-size:0.95rem;transition:all 0.25s; }
+    .social-icon:hover { border-color:var(--accent);color:var(--accent);transform:translateY(-3px);box-shadow:0 6px 20px rgba(59,130,246,0.2); }
+
+    /* Form */
+    .form-card { background:var(--bg-card);border:1px solid var(--border-card);border-radius:24px;backdrop-filter:blur(16px);padding:40px; }
+
+    .form-label { font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;color:var(--text-muted);display:block;margin-bottom:8px; }
+
+    .form-input {
+      width:100%;padding:14px 18px;border-radius:12px;
+      background:var(--input-bg);border:1px solid var(--input-border);
+      color:var(--text-primary);font-family:'Montserrat',sans-serif;
+      font-size:0.88rem;font-weight:400;
+      transition:all 0.3s;outline:none;
+    }
+    .form-input::placeholder { color:var(--text-muted); }
+    .form-input:focus { border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,0.1); }
+
+    .btn-primary { display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px 32px;border-radius:999px;background:var(--accent);color:#fff;font-family:'Montserrat',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;transition:all 0.3s;border:none;cursor:pointer;position:relative;overflow:hidden; }
+    .btn-primary::before { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);opacity:0;transition:opacity 0.3s; }
+    .btn-primary:hover { transform:translateY(-2px);box-shadow:0 12px 40px rgba(59,130,246,0.45); }
+    .btn-primary:hover::before { opacity:1; }
+
+    /* Footer */
+    footer { background:var(--footer-bg);border-top:1px solid var(--footer-border);transition:background 0.4s,border-color 0.4s; }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    
+
+    ::-webkit-scrollbar { width:4px; }
+    ::-webkit-scrollbar-track { background:var(--bg); }
+    ::-webkit-scrollbar-thumb { background:rgba(59,130,246,0.35);border-radius:2px; }
+  </style>
+</head>
+
+<body>
+
+  <div style="position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 md:px-20 py-5" data-aos="fade-down">
+    <a href="index.html">
+      <img src="assets/images/logo.png" class="h-10 w-auto block dark:hidden" alt="Logo">
+      <img src="assets/images/logo(dark).png"       class="h-10 w-auto hidden dark:block" alt="Logo">
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+ <a href="index.html"   class="nav-pill">HOME</a>
+      <a href="about.html"   class="nav-pill ">ABOUT ME</a>
+      <a href="project.html" class="nav-pill">PROJECTS</a>
+       <a href="testimonials.html"  class="nav-pill">TESTIMONIALS
+   <a href="blog.html" class="nav-pill">BLOG</a>
+      <a href="resume.html"  class="nav-pill">RESUME</a>
+   
+      <a href="contact.html" class="nav-pill active">CONTACT</a>
+    </nav>
+    <button id="themeToggle" class="theme-btn">
+      <i id="themeIcon" class="fas fa-moon"></i>
+    </button>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="relative pt-40 pb-16 px-10 md:px-20 text-center overflow-hidden">
+    <div style="position:absolute;inset:0;z-index:0;pointer-events:none;">
+      <div style="position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(59,130,246,.15),transparent 70%);pointer-events:none;"></div>
+    </div>
+      <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:0.2em;padding:6px 16px;">
+      
+      </div>
+      <h1 style="font-family:'Montserrat',sans-serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:900;line-height:1;color:var(--text-primary);margin-bottom:20px;">
+        Get In <em style="color:var(--accent);font-style:italic;">Touch</em>
+      </h1>
+      <p style="font-family:'Montserrat',sans-serif;max-width:480px;margin:0 auto;color:var(--text-secondary);font-size:0.9rem;line-height:1.85;font-weight:300;">
+        Have a project in mind, a question, or just want to say hello?
+        Feel free to reach out — I'd love to hear from you.
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="relative px-10 md:px-20 pb-32">
+    <div class="glow-line mb-16 opacity-25 max-w-6xl mx-auto"></div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 max-w-6xl mx-auto">
+
+      <!-- LEFT: Info -->
+      <div data-aos="fade-right">
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;color:var(--text-primary);line-height:1.1;margin-bottom:16px;">
+          Let's <em style="color:var(--accent);font-style:italic;">Connect</em>
+        </h2>
+        <p style="font-family:'Montserrat',sans-serif;color:var(--text-secondary);font-size:0.88rem;line-height:1.85;font-weight:300;margin-bottom:36px;max-width:380px;">
+          I'm open to freelance projects, collaborations, and full-time opportunities. Reach me through the details below or send a message using the form.
+        </p>
+
+        <!-- Contact Items -->
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:36px;">
+          <a href="mailto:cabralmarifel06@gmail.com" class="contact-item" style="text-decoration:none;">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">cabralmarifel06@gmail.com</div>
+            </div>
+          </a>
+          <a href="tel:09399550589" class="contact-item" style="text-decoration:none;">
+            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">0939 955 0589</div>
+            </div>
+          </a>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
+            <div>
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Angeles City, Pampanga, Philippines</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Socials -->
+        <div>
+          <p style="font-family:'Montserrat',sans-serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--text-muted);text-transform:uppercase;font-weight:600;margin-bottom:14px;">Find Me On</p>
+          <div class="flex gap-3">
+            <a href="https://www.facebook.com/MarifelCabral/"   class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/mrfl_c"          class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/marifelcabral06"         class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/marifelcabral/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="form-card" data-aos="fade-left">
+        <div class="eyebrow mb-6">Send a Message</div>
+        <form id="contactForm" style="display:flex;flex-direction:column;gap:20px;">
+          <div>
+            <label class="form-label">Full Name</label>
+            <input type="text" name="name" required placeholder="Your name" class="form-input" />
+          </div>
+          <div>
+            <label class="form-label">Email Address</label>
+            <input type="email" name="email" required placeholder="you@email.com" class="form-input" />
+          </div>
+          <div>
+            <label class="form-label">Subject</label>
+            <input type="text" name="subject" placeholder="What's this about?" class="form-input" />
+          </div>
+          <div>
+            <label class="form-label">Message</label>
+            <textarea name="message" rows="5" required placeholder="Write your message here..." class="form-input" style="resize:none;"></textarea>
+          </div>
+          <button type="submit" class="btn-primary">
+            Send Message <i class="fas fa-paper-plane text-xs"></i>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="px-10 md:px-20 py-14 mt-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+      <div>
+        <img src="assets/images/logo.png" class="h-10 w-auto block dark:hidden" alt="Logo">
+      <img src="assets/images/logo(dark).png"       class="h-10 w-auto hidden dark:block" alt="Logo">
+        <p style="font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:0.12em;color:var(--text-muted);opacity:0.5;margin-top:10px;"></p>
+      </div>
+      <nav class="flex gap-8">
+        <a href="index.html"   class="nav-pill">HOME</a>
+      <a href="about.html"   class="nav-pill ">ABOUT ME</a>
+      <a href="project.html" class="nav-pill">PROJECTS</a>
+       <a href="testimonials.html"  class="nav-pill">TESTIMONIALS
+   <a href="blog.html" class="nav-pill">BLOG</a>
+      <a href="resume.html"  class="nav-pill">RESUME</a>
+   
+      <a href="contact.html" class="nav-pill active">CONTACT</a>
+      </nav>
+      <div class="flex gap-3">
+        <a href="https://www.facebook.com/MarifelCabral/"   class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/mrfl_c"          class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/marifelcabral06"         class="social-icon"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/marifelcabral/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="glow-line my-10 opacity-20"></div>
+    <div class="text-center">
+      <p style="font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:0.12em;color:var(--text-muted);">© 2025 MARIFEL CABRAL · ALL RIGHTS RESERVED</p>
+    </div>
+  </footer>
+
+  <!-- SUCCESS TOAST -->
+  <div id="successToast" style="position:fixed;bottom:40px;right:40px;z-index:50;display:flex;align-items:center;gap:12px;padding:16px 24px;border-radius:16px;background:var(--accent);color:#fff;font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:600;box-shadow:0 20px 60px rgba(59,130,246,0.4);opacity:0;transform:translateY(20px);transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;">
+    <i class="fas fa-check-circle" style="font-size:1.1rem;"></i>
+    Thank You For Messaging!
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    AOS.init({ duration:850, once:true, easing:'ease-out-cubic' });
+
+    // Theme
+    const html   = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const icon   = document.getElementById('themeIcon');
+
+    function applyTheme(dark) {
+      if (dark) { html.classList.add('dark'); icon.className = 'fas fa-sun'; localStorage.setItem('theme','dark'); }
+      else { html.classList.remove('dark'); icon.className = 'fas fa-moon'; localStorage.setItem('theme','light'); }
+    }
+    const saved = localStorage.getItem('theme');
+    applyTheme(!saved || saved === 'dark');
+    toggle.addEventListener('click', () => applyTheme(!html.classList.contains('dark')));
+
+    // EmailJS
+    (function(){ emailjs.init("bEmAVYqbV0CbfqGP5"); })();
+
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      emailjs.sendForm("service_nkxfto5","template_hgm3irl",this).then(() => {
+        showSuccessMessage();
+        this.reset();
+      }, () => {
+        alert("Failed to send message. Please try again.");
+      });
+    });
+
+    function showSuccessMessage() {
+      const toast = document.getElementById("successToast");
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateY(0)';
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(20px)';
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

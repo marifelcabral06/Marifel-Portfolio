@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume | Marifel Cabral</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="View Marifel Cabral's resume — BS Information Technology student at Holy Angel University with experience in full-stack web development, Flutter, and SEO." />
+  <meta name="keywords" content="Marifel Cabral Resume, Full Stack Developer CV, Web Developer Resume, Holy Angel University, CompTIA ITF, HubSpot SEO" />
+  <meta name="author" content="Marifel Cabral" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://marifelcabral.com/resume.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Resume | Marifel Cabral" />
+  <meta property="og:description" content="View Marifel Cabral's resume — BS Information Technology student at Holy Angel University with experience in full-stack web development, Flutter, and SEO." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://marifelcabral.com/resume.html" />
+  <meta property="og:image" content="assets/images/hero.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Resume | Marifel Cabral" />
+  <meta name="twitter:description" content="View Marifel Cabral's resume — BS Information Technology student at Holy Angel University with experience in full-stack web development, Flutter, and SEO." />
+  <meta name="twitter:image" content="assets/images/hero.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    /* ════ CSS VARIABLES ════ */
+    .dark {
+      --accent:          #3b82f6;
+      --bg:              #070d1a;
+      --bg-card:         rgba(13,24,41,0.7);
+      --bg-header:       rgba(7,13,26,0.75);
+      --border:          rgba(59,130,246,0.18);
+      --border-card:     rgba(59,130,246,0.12);
+      --text-primary:    #ffffff;
+      --text-secondary:  rgba(255,255,255,0.55);
+      --text-muted:      rgba(255,255,255,0.32);
+      --orb1:            rgba(59,130,246,0.22);
+      --orb2:            rgba(99,102,241,0.15);
+      --orb3:            rgba(240,192,96,0.08);
+      --glow:            linear-gradient(90deg,transparent,rgba(59,130,246,0.5),transparent);
+      --footer-bg:       rgba(5,10,20,0.98);
+      --footer-border:   rgba(59,130,246,0.1);
+    }
+    html:not(.dark) {
+      --accent:          #2563eb;
+      --bg:              #f0f4fb;
+      --bg-card:         rgba(255,255,255,0.9);
+      --bg-header:       rgba(240,244,251,0.85);
+      --border:          rgba(37,99,235,0.18);
+      --border-card:     rgba(37,99,235,0.12);
+      --text-primary:    #0d1829;
+      --text-secondary:  #374151;
+      --text-muted:      #9ca3af;
+      --orb1:            rgba(59,130,246,0.10);
+      --orb2:            rgba(99,102,241,0.07);
+      --orb3:            rgba(240,192,96,0.04);
+      --glow:            linear-gradient(90deg,transparent,rgba(37,99,235,0.25),transparent);
+      --footer-bg:       #e2e8f4;
+      --footer-border:   rgba(37,99,235,0.12);
+    }
+
+    /* ════ BASE ════ */
+    *{box-sizing:border-box;}
+    body{
+      background:var(--bg);color:var(--text-primary);
+      overflow-x:hidden;transition:background .4s,color .4s;
+      font-family:'Montserrat',sans-serif;
+    }
+    body::before{
+      content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.02;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ════ ORBS ════ */
+    .orb{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;animation:drift 12s ease-in-out infinite alternate;transition:background .6s;}
+    .orb-1{width:600px;height:600px;background:radial-gradient(circle,var(--orb1),transparent 70%);top:-200px;left:-100px;}
+    .orb-2{width:500px;height:500px;background:radial-gradient(circle,var(--orb2),transparent 70%);bottom:-100px;right:0;animation-delay:-4s;}
+    .orb-3{width:350px;height:350px;background:radial-gradient(circle,var(--orb3),transparent 70%);top:40%;left:45%;animation-delay:-7s;}
+    @keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(40px,30px) scale(1.05)}}
+
+    /* ════ HEADER ════ */
+    header{background:var(--bg-header);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background .4s,border-color .4s;}
+
+    /* ════ NAV ════ */
+    .nav-pill{position:relative;padding-bottom:4px;font-size:.75rem;letter-spacing:.12em;font-weight:500;color:var(--text-secondary);transition:color .25s;}
+    .nav-pill::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--accent);transition:width .3s ease;}
+    .nav-pill:hover{color:var(--text-primary);}
+    .nav-pill:hover::after,.nav-pill.active::after{width:100%;}
+    .nav-pill.active{color:var(--text-primary);}
+
+    /* ════ THEME BTN ════ */
+    .theme-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--border);color:var(--text-secondary);transition:all .3s;font-size:.8rem;}
+    .theme-btn:hover{border-color:var(--accent);color:var(--accent);}
+
+    /* ════ GLOW LINE ════ */
+    .glow-line{height:1px;background:var(--glow);}
+
+    /* ════ EYEBROW ════ */
+    .section-eyebrow{font-family:'Montserrat',sans-serif;font-size:.68rem;letter-spacing:.25em;color:var(--accent);text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+    .section-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--accent);}
+
+    /* ════ SECTION TITLE ════ */
+    .section-heading{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--text-primary);line-height:1.1;}
+    .section-heading em{color:var(--accent);font-style:italic;}
+
+    /* ════ CARDS ════ */
+    .glass-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:20px;backdrop-filter:blur(12px);transition:all .4s ease;}
+    .glass-card:hover{border-color:rgba(59,130,246,.4);transform:translateY(-4px);box-shadow:0 24px 56px rgba(0,0,0,.15),0 0 36px rgba(59,130,246,.06);}
+
+    /* ════ SKILL BOXES ════ */
+    .skill-box{padding:2rem 2rem 2rem;border-radius:20px;background:var(--bg-card);border:1px solid var(--border-card);backdrop-filter:blur(12px);transition:all .4s;}
+    .skill-box:hover{border-color:rgba(59,130,246,.4);transform:translateY(-5px);box-shadow:0 20px 50px rgba(59,130,246,.12);}
+    .skill-box i{color:var(--accent);font-size:1.6rem;margin-bottom:1rem;display:block;}
+    .skill-box h3{font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}
+    .skill-box p{color:var(--text-secondary);font-size:.83rem;line-height:1.75;font-weight:300;}
+
+    /* ════ TIMELINE ════ */
+    .timeline-wrap{position:relative;padding-left:28px;}
+    .timeline-wrap::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:linear-gradient(to bottom,var(--accent),rgba(59,130,246,.1));}
+    .timeline-dot{position:absolute;left:-6px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);box-shadow:0 0 0 4px rgba(59,130,246,.12);transition:all .3s;}
+    .timeline-item:hover .timeline-dot{background:var(--accent);box-shadow:0 0 0 8px rgba(59,130,246,.10);}
+
+    /* ════ PROJECT LIST ════ */
+    .project-row{display:flex;align-items:center;gap:20px;padding:18px 24px;border-radius:14px;border:1px solid var(--border-card);background:var(--bg-card);backdrop-filter:blur(10px);transition:all .35s;}
+    .project-row:hover{border-color:rgba(59,130,246,.4);transform:translateX(6px);}
+    .project-num{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:900;color:rgba(59,130,246,.12);line-height:1;width:48px;flex-shrink:0;}
+    .project-name{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:700;color:var(--text-primary);}
+    .project-tech-label{font-family:'Montserrat',sans-serif;font-size:.62rem;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-top:2px;}
+
+    /* ════ CERT PILL ════ */
+    .cert-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;border:1px solid var(--border-card);background:var(--bg-card);font-size:.75rem;color:var(--text-secondary);transition:all .3s;backdrop-filter:blur(8px);}
+    .cert-pill:hover{border-color:var(--accent);color:var(--accent);}
+    .cert-pill i{color:var(--accent);font-size:.7rem;}
+
+    /* ════ BUTTONS ════ */
+    .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:999px;background:var(--accent);color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:all .3s;position:relative;overflow:hidden;}
+    .btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .3s;}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(59,130,246,.45);}
+    .btn-primary:hover::before{opacity:1;}
+    .btn-outline{display:inline-flex;align-items:center;gap:10px;padding:13px 28px;border-radius:999px;border:1.5px solid var(--border);color:var(--text-secondary);font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;transition:all .3s;}
+    .btn-outline:hover{border-color:var(--accent);color:var(--text-primary);background:rgba(59,130,246,.08);}
+
+    /* ════ SOCIAL ════ */
+    .social-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:.9rem;border:1px solid var(--border);color:var(--text-muted);transition:all .25s;}
+    .social-icon:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px);box-shadow:0 6px 20px rgba(59,130,246,.2);}
+
+    /* ════ FOOTER ════ */
+    footer{background:var(--footer-bg);border-top:1px solid var(--footer-border);transition:background .4s,border-color .4s;}
+    .footer-copy{font-family:'Montserrat',sans-serif;font-size:.68rem;letter-spacing:.12em;color:var(--text-muted);}
+    .footer-tagline{font-family:'Montserrat',sans-serif;font-size:.68rem;letter-spacing:.12em;color:var(--text-muted);opacity:.5;}
+
+    /* ════ HERO BADGE ════ */
+    .tag-badge{display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:.7rem;letter-spacing:.2em;padding:6px 16px;border-radius:999px;border:1px solid rgba(59,130,246,.4);background:rgba(59,130,246,.08);color:var(--accent);}
+
+    /* ════ SCROLLBAR ════ */
+    ::-webkit-scrollbar{width:4px;}
+    ::-webkit-scrollbar-track{background:var(--bg);}
+    ::-webkit-scrollbar-thumb{background:rgba(59,130,246,.4);border-radius:2px;}
+
+    /* Accessibility */
+    .skip-link { position:absolute; top:-100px; left:16px; background:var(--accent); color:#fff; padding:10px 18px; border-radius:8px; font-size:0.82rem; font-weight:600; z-index:9999; transition:top 0.2s; }
+    .skip-link:focus { top:16px; }
+    *:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }
+
+    /* ════ STATS ════ */
+    .stat-val{font-family:'Montserrat',sans-serif;font-size:2.8rem;font-weight:900;color:var(--accent);line-height:1;}
+    .stat-label{font-family:'Montserrat',sans-serif;font-size:.65rem;letter-spacing:.2em;color:var(--text-muted);text-transform:uppercase;margin-top:4px;}
+
+    /* ════ AVAILABLE DOT ════ */
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    .dot-blink{width:7px;height:7px;border-radius:50%;background:#4ade80;animation:blink 1.8s ease-in-out infinite;flex-shrink:0;}
+  </style>
+</head>
+
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- BG ORBS -->
+  <div style="position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 md:px-20 py-5" data-aos="fade-down">
+    <a href="index.html">
+    <img src="assets/images/logo.png" class="h-10 w-auto block dark:hidden" alt="Logo">
+      <img src="assets/images/logo(dark).png"       class="h-10 w-auto hidden dark:block" alt="Logo">
+    </a>
+    <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+     <a href="index.html"   class="nav-pill">HOME</a>
+      <a href="about.html"   class="nav-pill ">ABOUT ME</a>
+      <a href="project.html" class="nav-pill">PROJECTS</a>
+       <a href="testimonials.html"  class="nav-pill">TESTIMONIALS
+   <a href="blog.html" class="nav-pill">BLOG</a>
+      <a href="resume.html"  class="nav-pill active">RESUME</a>
+   
+      <a href="contact.html" class="nav-pill">CONTACT</a>
+    </nav>
+    <button id="themeToggle" class="theme-btn" aria-label="Toggle dark/light mode">
+      <i id="themeIcon" class="fas fa-moon"></i>
+    </button>
+  </header>
+
+  <main id="main-content">
+  <!-- ══════════ HERO ══════════ -->
+  <section class="relative pt-40 pb-24 px-10 md:px-20 text-center overflow-hidden">
+    <!-- glow backdrop -->
+    <div style="position:absolute;inset:0;z-index:0;pointer-events:none;">
+      <div style="position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(59,130,246,.15),transparent 70%);pointer-events:none;"></div>
+    </div>
+
+    <div class="relative z-10" data-aos="fade-up">
+      
+      <h1 style="font-family:'Montserrat',sans-serif;font-size:clamp(3.5rem,8vw,6.5rem);font-weight:900;line-height:1;color:var(--text-primary);">
+        My <em style="color:var(--accent);font-style:italic;">Resume</em>
+      </h1>
+      <p style="margin-top:1.5rem;max-width:520px;margin-left:auto;margin-right:auto;color:var(--text-secondary);font-size:.9rem;line-height:1.85;font-weight:300;">
+        A structured overview of my professional background, technical expertise,
+        and hands-on experience as a Full-Stack Web Developer.
+      </p>
+    </div>
+
+
+  <!-- ══════════ SKILLS ══════════ -->
+  <section class="relative px-10 md:px-20 py-20">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-12" data-aos="fade-up">
+      
+        <h2 class="section-heading">Technical <em>Skills</em></h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="skill-box">
+          <i class="fas fa-code"></i>
+          <h3>Frontend</h3>
+          <p>HTML, CSS, JavaScript, TypeScript, Angular, Vue.js, Bootstrap, Tailwind CSS, Responsive Web Design, Accessibility Basics</p>
+        </div>
+        <div class="skill-box">
+          <i class="fas fa-database"></i>
+          <h3>Backend</h3>
+          <p>PHP, SQL, Express.js, Node.js, WordPress, Elementor, Git, GitHub</p>
+        </div>
+        <div class="skill-box">
+          <i class="fas fa-mobile-screen"></i>
+          <h3>Mobile & Other</h3>
+          <p>Flutter, Dart, SEO Fundamentals, On-Page SEO, Meta Tags, Image Optimization, CMS-based Development</p>
+        </div>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="mt-16" data-aos="fade-up" data-aos-delay="150">
+        
+        <h2 class="section-heading mb-8">Soft <em>Skills</em></h2>
+        <div class="flex flex-wrap gap-3">
+          <span class="cert-pill"><i class="fas fa-ear-listen"></i> Active Listener</span>
+          <span class="cert-pill"><i class="fas fa-lightbulb"></i> Problem-Solving</span>
+          <span class="cert-pill"><i class="fas fa-seedling"></i> Open to Growth</span>
+          <span class="cert-pill"><i class="fas fa-shuffle"></i> Adaptable</span>
+          <span class="cert-pill"><i class="fas fa-people-group"></i> Team Player</span>
+          <span class="cert-pill"><i class="fas fa-comments"></i> Good Communication</span>
+          <span class="cert-pill"><i class="fas fa-book-open"></i> Willingness to Learn</span>
+          <span class="cert-pill"><i class="fas fa-magnifying-glass"></i> Attention to Detail</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ EXPERIENCE ══════════ -->
+  <section class="relative px-10 md:px-20 py-20">
+    <div class="glow-line mb-20 opacity-30"></div>
+    <div class="max-w-4xl mx-auto">
+      <div class="mb-12" data-aos="fade-up">
+        
+        <h2 class="section-heading">Experience</h2>
+      </div>
+
+      <div class="timeline-wrap" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-item relative pb-0">
+          <div class="timeline-dot"></div>
+          <div class="glass-card p-8 ml-6">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
+              <div>
+                <p style="font-family:'Montserrat',sans-serif;font-size:.65rem;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:8px;">Current Role</p>
+                <h3 style="font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:700;color:var(--text-primary);">Freelance Website Developer</h3>
+                <p style="color:var(--text-muted);font-size:.82rem;margin-top:4px;">AffordaLabs Diagnostic Plus</p>
+              </div>
+              <span style="font-family:'Montserrat',sans-serif;font-size:.68rem;padding:6px 14px;border-radius:999px;border:1px solid var(--border);color:var(--text-muted);white-space:nowrap;height:fit-content;">Jan 2026 – Present</span>
+            </div>
+            <ul style="color:var(--text-secondary);font-size:.86rem;line-height:1.9;font-weight:300;display:flex;flex-direction:column;gap:6px;">
+              <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--accent);margin-top:4px;">—</span> Develop and maintain responsive website features optimized for desktop and mobile devices</li>
+              <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--accent);margin-top:4px;">—</span> Improve page structure, layout consistency, and usability</li>
+              <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--accent);margin-top:4px;">—</span> Apply on-page SEO techniques including meta tags, content structuring, and image optimization</li>
+              <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--accent);margin-top:4px;">—</span> Perform content updates, UI improvements, and performance enhancements</li>
+              <li style="display:flex;gap:10px;align-items:flex-start;"><span style="color:var(--accent);margin-top:4px;">—</span> Collaborate with stakeholders to deliver updates on time and meet project requirements</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ PROJECTS ══════════ -->
+  <section class="relative px-10 md:px-20 py-20">
+    <div class="max-w-4xl mx-auto">
+      <div class="mb-12" data-aos="fade-up">
+        
+        <h2 class="section-heading">Highlighted <em>Projects</em></h2>
+      </div>
+
+      <div class="flex flex-col gap-4" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="project-row">
+          <div class="project-num">·</div>
+          <div class="flex-1">
+            <div class="project-name">AffordaLabs Diagnostic Plus</div>
+            <div class="project-tech-label">PHP · MySQL · HTML · CSS · Responsive Website</div>
+          </div>
+          <a href="http://affordalabs.infinityfreeapp.com/" target="_blank" style="color:var(--text-muted);font-size:.8rem;transition:color .3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'"><i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="project-row">
+          <div class="project-num">·</div>
+          <div class="flex-1">
+            <div class="project-name">Hotel Viñas Deluxe</div>
+            <div class="project-tech-label">PHP · MySQL · HTML · CSS — Hotel Booking Website</div>
+          </div>
+          <i class="fas fa-arrow-right" style="color:var(--text-muted);font-size:.8rem;"></i>
+        </div>
+
+        <div class="project-row">
+          <div class="project-num">·</div>
+          <div class="flex-1">
+            <div class="project-name">Safe Sphere</div>
+            <div class="project-tech-label">Flutter · Dart — Mobile Application</div>
+          </div>
+          <i class="fas fa-arrow-right" style="color:var(--text-muted);font-size:.8rem;"></i>
+        </div>
+
+        <div class="project-row">
+          <div class="project-num">·</div>
+          <div class="flex-1">
+            <div class="project-name">MiniJira Board</div>
+            <div class="project-tech-label">Flutter · Dart — Task Management App</div>
+          </div>
+          <i class="fas fa-arrow-right" style="color:var(--text-muted);font-size:.8rem;"></i>
+        </div>
+
+        <div class="project-row">
+          <div class="project-num">·</div>
+          <div class="flex-1">
+            <div class="project-name">Sole Formula</div>
+            <div class="project-tech-label">WordPress · HTML · CSS · SEO — Shoe Trends Blog</div>
+          </div>
+          <i class="fas fa-arrow-right" style="color:var(--text-muted);font-size:.8rem;"></i>
+        </div>
+
+        <div class="project-row">
+          <div class="project-num">·</div>
+          <div class="flex-1">
+            <div class="project-name">StarSeatAutoCover.com</div>
+            <div class="project-tech-label">HTML · CSS · SEO · WordPress — SEO Optimization (Ongoing)</div>
+          </div>
+          <a href="https://starseatautocover.com/" target="_blank" style="color:var(--text-muted);font-size:.8rem;transition:color .3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'"><i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+      </div>
+
+      <div class="mt-8" data-aos="fade-up" data-aos-delay="150">
+        <a href="project.html" class="btn-outline">
+          View All Projects <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ EDUCATION & CERTIFICATIONS ══════════ -->
+  <section class="relative px-10 md:px-20 py-20">
+    <div class="glow-line mb-20 opacity-30"></div>
+
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+
+      <!-- Education -->
+      <div data-aos="fade-right">
+        
+        <h2 class="section-heading mb-8">Education</h2>
+        <div class="glass-card p-8">
+          <p style="font-family:'Montserrat',sans-serif;font-size:.65rem;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;">2022 – 2026 (Expected)</p>
+          <h3 style="font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text-primary);margin-bottom:6px;">Bachelor of Science in Information Technology</h3>
+          <p style="color:var(--accent);font-size:.82rem;font-weight:500;margin-bottom:4px;">Major in Web Development</p>
+          <p style="color:var(--text-muted);font-size:.82rem;">Holy Angel University</p>
+          <div class="mt-6 pt-6" style="border-top:1px solid var(--border-card);">
+            <p style="color:var(--text-secondary);font-size:.83rem;line-height:1.75;font-weight:300;">
+              Focused on modern web technologies, software engineering principles, mobile development, and human-computer interaction.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div data-aos="fade-left">
+      
+        <h2 class="section-heading mb-8">Certifications</h2>
+        <div class="flex flex-wrap gap-3">
+          <div class="cert-pill"><i class="fas fa-certificate"></i> CompTIA ITF+</div>
+          <div class="cert-pill"><i class="fas fa-magnifying-glass"></i> SEO Certified – HubSpot</div>
+          <div class="cert-pill"><i class="fas fa-bullhorn"></i> Digital Advertising – HubSpot</div>
+          <div class="cert-pill"><i class="fas fa-code"></i> SQL (Basic) – HackerRank</div>
+          <div class="cert-pill"><i class="fas fa-code"></i> R (Basic) – HackerRank</div>
+          <div class="cert-pill"><i class="fas fa-code"></i> Python (Basic) – HackerRank</div>
+          <div class="cert-pill"><i class="fas fa-code"></i> Java (Basic) – HackerRank</div>
+          <div class="cert-pill"><i class="fas fa-brain"></i> Problem Solving (Basic) – HackerRank</div>
+          <div class="cert-pill"><i class="fas fa-code"></i> Go (Basic) – HackerRank</div>
+          <div class="cert-pill"><i class="fas fa-code"></i> C# (Basic) – HackerRank</div>
+          <div class="cert-pill"><i class="fas fa-pen-nib"></i> Intro to Graphic Design: Basics of UI/UX – Simplilearn</div>
+          <div class="cert-pill"><i class="fas fa-robot"></i> Website UI/UX Designing Using ChatGPT – Simplilearn</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ DOWNLOAD CTA ══════════ -->
+  <section class="relative px-10 md:px-20 py-20">
+    <div class="max-w-4xl mx-auto" data-aos="fade-up">
+      <div style="border-radius:28px;border:1px solid var(--border);background:var(--bg-card);backdrop-filter:blur(16px);padding:56px 48px;position:relative;overflow:hidden;">
+        <!-- Glow effects inside card -->
+        <div style="position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.12),transparent 70%);pointer-events:none;"></div>
+        <div style="position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.08),transparent 70%);pointer-events:none;"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+          <div>
+            <div class="section-eyebrow mb-4">Get My Resume</div>
+            <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:900;color:var(--text-primary);line-height:1.15;margin-bottom:12px;">
+              Download or <em style="color:var(--accent);font-style:italic;">Preview</em> <br>the full PDF
+            </h2>
+            <p style="color:var(--text-secondary);font-size:.86rem;line-height:1.8;font-weight:300;max-width:340px;">
+              Get a clean, formatted version of my resume — ready to share, print, or read at your own pace.
+            </p>
+          </div>
+          <div class="flex flex-col gap-4 flex-shrink-0">
+            <a href="assets/files/Marifel-Cabral-Resume.pdf" download class="btn-primary">
+              <i class="fas fa-download text-xs"></i> Download PDF
+            </a>
+            <a href="assets/files/Marifel-Cabral-Resume.pdf" target="_blank" class="btn-outline justify-center">
+              <i class="fas fa-eye text-xs"></i> View Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CTA CONTACT ══════════ -->
+  <section class="relative px-10 md:px-20 py-16 text-center">
+    <div class="glow-line mb-16 opacity-30"></div>
+    <div data-aos="fade-up">
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--text-primary);margin-bottom:16px;">
+        Want to work <em style="color:var(--accent);font-style:italic;">together?</em>
+      </h2>
+      <p style="color:var(--text-secondary);font-size:.88rem;margin-bottom:32px;font-weight:300;">
+        I'm open to freelance projects, internships, and full-time opportunities.
+      </p>
+      <a href="contact.html" class="btn-primary mx-auto" style="width:fit-content;">
+        Contact Me <i class="fas fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="px-10 md:px-20 py-14 mt-10">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+      <div>
+     <img src="assets/images/logo.png" class="h-10 w-auto block dark:hidden" alt="Logo">
+      <img src="assets/images/logo(dark).png"       class="h-10 w-auto hidden dark:block" alt="Logo">
+        <p class="footer-tagline mt-3"></p>
+      </div>
+      <nav class="flex gap-8">
+       <a href="index.html"   class="nav-pill">HOME</a>
+      <a href="about.html"   class="nav-pill ">ABOUT ME</a>
+      <a href="project.html" class="nav-pill">PROJECTS</a>
+       <a href="testimonials.html"  class="nav-pill">TESTIMONIALS
+   <a href="blog.html" class="nav-pill">BLOG</a>
+      <a href="resume.html"  class="nav-pill active">RESUME</a>
+   
+      <a href="contact.html" class="nav-pill">CONTACT</a>
+      </nav>
+      <div class="flex gap-3">
+        <a href="https://www.facebook.com/MarifelCabral/"   class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/mrfl_c"          class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/marifelcabral06"         class="social-icon"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/marifelcabral/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="glow-line my-10 opacity-20"></div>
+    <div class="text-center">
+      <p class="footer-copy">© 2025 MARIFEL CABRAL · ALL RIGHTS RESERVED</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 850, once: true, easing: 'ease-out-cubic' });
+
+    // ─── THEME ─────────────────────────────
+    const html   = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const icon   = document.getElementById('themeIcon');
+
+    function applyTheme(dark) {
+      if (dark) {
+        html.classList.add('dark');
+        icon.className = 'fas fa-sun';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.classList.remove('dark');
+        icon.className = 'fas fa-moon';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    const saved = localStorage.getItem('theme');
+    applyTheme(!saved || saved === 'dark');
+    toggle.addEventListener('click', () => applyTheme(!html.classList.contains('dark')));
+  </script>
+</body>
+</html>
