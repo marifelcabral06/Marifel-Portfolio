@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Marifel Cabral</title>
+  <meta name="description" content="Web development articles by Marifel Cabral — insights on coding, growth mindset, and developer productivity." />
+  <meta name="keywords" content="Marifel Cabral Blog, Web Development Articles, Developer Tips, Coding Mindset" />
+  <meta name="author" content="Marifel Cabral" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://marifelcabral.com/blog.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    .dark {
+      --accent:        #3b82f6;
+      --bg:            #070d1a;
+      --bg-card:       rgba(13,24,41,0.70);
+      --bg-header:     rgba(7,13,26,0.80);
+      --border:        rgba(59,130,246,0.18);
+      --border-card:   rgba(59,130,246,0.13);
+      --text-primary:  #ffffff;
+      --text-secondary:rgba(255,255,255,0.56);
+      --text-muted:    rgba(255,255,255,0.30);
+      --orb1:          rgba(59,130,246,0.20);
+      --orb2:          rgba(99,102,241,0.13);
+      --glow:          linear-gradient(90deg,transparent,rgba(59,130,246,0.45),transparent);
+      --footer-bg:     rgba(5,10,20,0.98);
+      --footer-border: rgba(59,130,246,0.1);
+      --blockquote-bg: rgba(59,130,246,0.07);
+      --mobile-bg:     rgba(5,10,20,0.98);
+      --article-bg:    rgba(13,24,41,0.55);
+      --article-border:rgba(59,130,246,0.13);
+    }
+    html:not(.dark) {
+      --accent:        #2563eb;
+      --bg:            #f0f4fb;
+      --bg-card:       rgba(255,255,255,0.92);
+      --bg-header:     rgba(240,244,251,0.88);
+      --border:        rgba(37,99,235,0.16);
+      --border-card:   rgba(37,99,235,0.11);
+      --text-primary:  #0d1829;
+      --text-secondary:#374151;
+      --text-muted:    #9ca3af;
+      --orb1:          rgba(59,130,246,0.09);
+      --orb2:          rgba(99,102,241,0.06);
+      --glow:          linear-gradient(90deg,transparent,rgba(37,99,235,0.22),transparent);
+      --footer-bg:     #e2e8f4;
+      --footer-border: rgba(37,99,235,0.12);
+      --blockquote-bg: rgba(37,99,235,0.06);
+      --mobile-bg:     rgba(240,244,251,0.98);
+      --article-bg:    rgba(255,255,255,0.85);
+      --article-border:rgba(37,99,235,0.11);
+    }
+
+    * { box-sizing:border-box; }
+    body { background:var(--bg);color:var(--text-primary);overflow-x:hidden;font-family:'Montserrat',sans-serif;transition:background 0.4s,color 0.4s; }
+    body::before { content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.018;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    .orb { position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;animation:drift 12s ease-in-out infinite alternate; }
+    .orb-1 { width:600px;height:600px;background:radial-gradient(circle,var(--orb1),transparent 70%);top:-200px;left:-100px; }
+    .orb-2 { width:500px;height:500px;background:radial-gradient(circle,var(--orb2),transparent 70%);bottom:-100px;right:0;animation-delay:-4s; }
+    @keyframes drift { from{transform:translate(0,0)scale(1)} to{transform:translate(40px,30px)scale(1.05)} }
+
+    header { background:var(--bg-header);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background 0.4s,border-color 0.4s; }
+
+    .nav-pill { position:relative;padding-bottom:4px;font-size:0.75rem;letter-spacing:0.12em;font-weight:500;color:var(--text-secondary);transition:color 0.25s;font-family:'Montserrat',sans-serif; }
+    .nav-pill::after { content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--accent);transition:width 0.3s ease; }
+    .nav-pill:hover { color:var(--text-primary); }
+    .nav-pill:hover::after,.nav-pill.active::after { width:100%; }
+    .nav-pill.active { color:var(--text-primary); }
+
+    .theme-btn { width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--border);color:var(--text-secondary);transition:all 0.3s;font-size:0.8rem;background:transparent;cursor:pointer;flex-shrink:0; }
+    .theme-btn:hover { border-color:var(--accent);color:var(--accent); }
+
+    /* ── HAMBURGER ── */
+    .hamburger { width:36px;height:36px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;border:1px solid var(--border);border-radius:8px;background:transparent;transition:border-color 0.3s;padding:0;flex-shrink:0; }
+    .hamburger span { display:block;width:16px;height:1.5px;background:var(--text-secondary);border-radius:2px;transition:all 0.3s;transform-origin:center; }
+    .hamburger:hover { border-color:var(--accent); }
+    .hamburger:hover span { background:var(--accent); }
+    .hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(4.5px,4.5px); }
+    .hamburger.open span:nth-child(2) { opacity:0;transform:scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(4.5px,-4.5px); }
+
+    /* ── MOBILE MENU ── */
+    #mobileMenu { position:fixed;inset:0;z-index:40;background:var(--mobile-bg);backdrop-filter:blur(24px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;opacity:0;pointer-events:none;transition:opacity 0.3s ease; }
+    #mobileMenu.open { opacity:1;pointer-events:all; }
+    #mobileMenu .m-link { font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:0.18em;color:var(--text-secondary);text-transform:uppercase;padding:10px 0;transition:color 0.2s,transform 0.3s,opacity 0.3s;transform:translateY(12px);opacity:0; }
+    #mobileMenu.open .m-link { transform:translateY(0);opacity:1; }
+    #mobileMenu .m-link:hover,#mobileMenu .m-link.active { color:var(--accent); }
+    #mobileMenu .m-link:nth-child(1){transition-delay:0.04s}
+    #mobileMenu .m-link:nth-child(2){transition-delay:0.08s}
+    #mobileMenu .m-link:nth-child(3){transition-delay:0.12s}
+    #mobileMenu .m-link:nth-child(4){transition-delay:0.16s}
+    #mobileMenu .m-link:nth-child(5){transition-delay:0.20s}
+    #mobileMenu .m-link:nth-child(6){transition-delay:0.24s}
+    #mobileMenu .m-link:nth-child(7){transition-delay:0.28s}
+    .m-socials { display:flex;gap:14px;margin-top:20px;opacity:0;transform:translateY(12px);transition:opacity 0.3s 0.32s,transform 0.3s 0.32s; }
+    #mobileMenu.open .m-socials { opacity:1;transform:translateY(0); }
+
+    .glow-line { height:1px;background:var(--glow); }
+
+    .eyebrow { font-family:'Montserrat',sans-serif;font-size:0.65rem;letter-spacing:0.25em;color:var(--accent);text-transform:uppercase;display:flex;align-items:center;gap:10px;font-weight:700; }
+    .eyebrow::before { content:'';display:block;width:24px;height:1px;background:var(--accent); }
+
+    /* ── ARTICLE CARD ── */
+    .article-card {
+      max-width: 740px;
+      margin: 0 auto;
+      background: var(--article-bg);
+      border: 1px solid var(--article-border);
+      border-radius: 28px;
+      backdrop-filter: blur(14px);
+      padding: 48px 52px;
+      transition: border-color 0.4s, box-shadow 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), rgba(99,102,241,0.6), transparent);
+      border-radius: 28px 28px 0 0;
+    }
+    .article-card:hover {
+      border-color: rgba(59,130,246,0.3);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.12), 0 0 50px rgba(59,130,246,0.05);
+    }
+
+    /* Tablet/mobile padding */
+    @media (max-width: 767px) {
+      .article-card { padding: 28px 22px; border-radius: 20px; }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .article-card { padding: 36px 38px; }
+    }
+
+    /* ── ARTICLE META BAR ── */
+    .meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .meta-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 12px; border-radius: 999px;
+      background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.18);
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent);
+      font-family: 'Montserrat', sans-serif;
+    }
+    .meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--text-muted); }
+
+    /* ── PROSE ── */
+    .prose p { font-size:0.9rem;line-height:2;color:var(--text-secondary);font-weight:300;margin-bottom:1rem;font-family:'Montserrat',sans-serif; }
+    .prose h2 { font-size:1.05rem;font-weight:800;color:var(--text-primary);margin:2.2rem 0 0.75rem;font-family:'Montserrat',sans-serif;letter-spacing:0.03em; }
+    .prose ul { margin:0.5rem 0 1.2rem;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px; }
+    .prose ul li { font-size:0.87rem;line-height:1.8;color:var(--text-secondary);font-weight:300;display:flex;gap:10px;align-items:flex-start;font-family:'Montserrat',sans-serif; }
+    .prose ul li::before { content:'';width:5px;height:5px;min-width:5px;border-radius:50%;background:var(--accent);margin-top:9px; }
+    .prose blockquote { border-left:3px solid var(--accent);padding:16px 22px;margin:1.8rem 0;border-radius:0 12px 12px 0;background:var(--blockquote-bg);font-size:0.92rem;font-weight:600;font-style:italic;color:var(--text-primary);line-height:1.75;font-family:'Montserrat',sans-serif; }
+    .prose hr { border:none;height:1px;background:var(--article-border);margin:2rem 0; }
+    .prose strong { color:var(--text-primary);font-weight:600; }
+
+    /* ── DIVIDER BETWEEN ARTICLES ── */
+    .article-divider {
+      max-width: 740px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+    }
+    .article-divider::before,
+    .article-divider::after { content:''; flex:1; height:1px; background: var(--glow); opacity: 0.3; }
+    .article-divider span { font-family:'Montserrat',sans-serif; font-size:0.6rem; letter-spacing:0.3em; color:var(--text-muted); text-transform:uppercase; white-space:nowrap; }
+
+    /* Social / footer */
+    .social-icon { width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--border);color:var(--text-muted);font-size:0.88rem;transition:all 0.25s; }
+    .social-icon:hover { border-color:var(--accent);color:var(--accent);transform:translateY(-3px);box-shadow:0 6px 18px rgba(59,130,246,0.18); }
+    footer { background:var(--footer-bg);border-top:1px solid var(--footer-border);transition:background 0.4s,border-color 0.4s; }
+
+    /* Accessibility */
+    .skip-link { position:absolute;top:-100px;left:16px;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-size:0.82rem;font-weight:600;z-index:9999;transition:top 0.2s; }
+    .skip-link:focus { top:16px; }
+    *:focus-visible { outline:2px solid var(--accent);outline-offset:3px;border-radius:4px; }
+
+    ::-webkit-scrollbar { width:4px; }
+    ::-webkit-scrollbar-track { background:var(--bg); }
+    ::-webkit-scrollbar-thumb { background:rgba(59,130,246,0.35);border-radius:2px; }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" role="dialog" aria-modal="true">
+    <a href="index.html"        class="m-link">HOME</a>
+    <a href="about.html"        class="m-link">ABOUT ME</a>
+    <a href="project.html"      class="m-link">PROJECTS</a>
+    <a href="testimonials.html" class="m-link">TESTIMONIALS</a>
+    <a href="blog.html"         class="m-link active">BLOG</a>
+    <a href="resume.html"       class="m-link">RESUME</a>
+    <a href="contact.html"      class="m-link">CONTACT</a>
+    <div class="m-socials">
+      <a href="https://www.facebook.com/MarifelCabral/"    class="social-icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/mrfl_c"           class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/marifelcabral06"          class="social-icon"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/marifelcabral/"  class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+
+  <div style="position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 lg:px-20 py-4 md:py-5" data-aos="fade-down">
+    <a href="index.html" class="flex-shrink-0">
+      <img src="assets/images/logo(dark).png" class="h-9 w-auto block dark:hidden" alt="Logo">
+      <img src="assets/images/logo.png"        class="h-9 w-auto hidden dark:block"  alt="Logo">
+    </a>
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+      <a href="index.html"        class="nav-pill">HOME</a>
+      <a href="about.html"        class="nav-pill">ABOUT ME</a>
+      <a href="project.html"      class="nav-pill">PROJECTS</a>
+      <a href="testimonials.html" class="nav-pill">TESTIMONIALS</a>
+      <a href="blog.html"         class="nav-pill active">BLOG</a>
+      <a href="resume.html"       class="nav-pill">RESUME</a>
+      <a href="contact.html"      class="nav-pill">CONTACT</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button id="themeToggle" class="theme-btn" aria-label="Toggle dark/light mode">
+        <i id="themeIcon" class="fas fa-moon"></i>
+      </button>
+      <button id="hamburger" class="hamburger lg:hidden" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- PAGE HERO -->
+    <section class="relative pt-32 pb-10 px-6 md:px-10 lg:px-20">
+      <div style="max-width:740px;margin:0 auto;" data-aos="fade-up">
+        <div class="eyebrow mb-5">Writing</div>
+        <h1 style="font-family:'Montserrat',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:var(--text-primary);margin-bottom:14px;line-height:1.1;">
+          My <em style="color:var(--accent);font-style:italic;">Blog</em>
+        </h1>
+        <p style="font-family:'Montserrat',sans-serif;color:var(--text-secondary);font-size:0.88rem;line-height:1.8;font-weight:300;">
+          Thoughts on web development, growth, and lessons learned along the way.
+        </p>
+      </div>
+    </section>
+
+    <!-- ARTICLES -->
+    <section class="px-6 md:px-10 lg:px-20 pb-32">
+      <div class="glow-line mt-10 mb-14 opacity-25" style="max-width:740px;margin-left:auto;margin-right:auto;"></div>
+
+      <!-- ARTICLE 1 -->
+      <article class="article-card mb-8" data-aos="fade-up">
+        <!-- Meta bar -->
+        <div class="meta-bar">
+          <span class="meta-tag"><i class="fas fa-seedling"></i> Growth Mindset</span>
+          <span class="meta-tag"><i class="fas fa-magnifying-glass"></i> SEO</span>
+          <div class="meta-dot"></div>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.65rem;color:var(--text-muted);letter-spacing:0.08em;">2025 · 4 min read</span>
+        </div>
+
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:var(--text-primary);margin-bottom:6px;line-height:1.25;">
+          Why Accepting Failure Made Me a Better Web Developer
+        </h2>
+        <p style="font-family:'Montserrat',sans-serif;font-size:0.72rem;color:var(--text-muted);margin-bottom:32px;letter-spacing:0.06em;">By Marifel Cabral</p>
+
+        <div class="prose">
+          <p>Every web developer talks about success — landing clients, building beautiful websites, mastering JavaScript frameworks. But what people don't talk about enough is <strong>failure</strong>.</p>
+          <p>As a web developer, I learned that accepting errors and failures is one of the most powerful tools for growth. Debugging mistakes, broken layouts, and failed deployments are not setbacks — they are stepping stones.</p>
+
+          <h2>My First Big Web Development Failure</h2>
+          <p>I remember launching my first client website. I was confident. The design looked perfect on my laptop. But when the client opened it on mobile? The layout was broken. Text overlapped images. Buttons didn't work properly.</p>
+          <p>Instead of quitting or blaming tools, I decided to:</p>
+          <ul>
+            <li>Review my CSS</li>
+            <li>Study responsive web design</li>
+            <li>Learn about media queries</li>
+            <li>Test on multiple screen sizes</li>
+          </ul>
+          <p>That failure pushed me to truly understand <strong>responsive web development</strong>.</p>
+          <hr>
+
+          <h2>Debugging Errors Is Part of the Process</h2>
+          <p>In web development, errors are normal — 404 errors, JavaScript console errors, database connection issues, API failures. At first, errors feel frustrating. But experienced developers know:</p>
+          <blockquote>Every error message is a lesson in disguise.</blockquote>
+          <p>Instead of avoiding problems, I started asking: What caused this bug? How can I prevent it next time? This mindset improved my problem-solving skills dramatically.</p>
+          <hr>
+
+          <h2>Growth Comes From Mistakes</h2>
+          <p>The best developers aren't the ones who never fail. They're the ones who test carefully, learn from debugging, and refactor messy code. Failure taught me patience, attention to detail, and the importance of continuous learning.</p>
+          <hr>
+
+          <h2>SEO Tip: Learn From Analytics Too</h2>
+          <p>Failure also applies to <strong>SEO and website performance</strong>. Sometimes a website doesn't rank, traffic drops, or users leave quickly. Instead of giving up, analyze page speed, mobile optimization, keyword usage, and user experience. Data-driven improvements turn failure into growth.</p>
+          <hr>
+
+          <h2>Conclusion</h2>
+          <p>If you're starting your journey as a web developer, remember: Failure is not the opposite of success — it is part of it.</p>
+          <blockquote>Accept failure. Learn from it. Grow because of it.</blockquote>
+        </div>
+      </article>
+
+      <!-- DIVIDER -->
+      <div class="article-divider" data-aos="fade-up">
+        <span>Next Article</span>
+      </div>
+
+      <!-- ARTICLE 2 -->
+      <article class="article-card mt-8" data-aos="fade-up">
+        <div class="meta-bar">
+          <span class="meta-tag"><i class="fas fa-bolt"></i> Productivity</span>
+          <span class="meta-tag"><i class="fas fa-laptop-code"></i> Developer Life</span>
+          <div class="meta-dot"></div>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.65rem;color:var(--text-muted);letter-spacing:0.08em;">2025 · 4 min read</span>
+        </div>
+
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:var(--text-primary);margin-bottom:6px;line-height:1.25;">
+          Why Taking a Break Can Make You a Better Web Developer
+        </h2>
+        <p style="font-family:'Montserrat',sans-serif;font-size:0.72rem;color:var(--text-muted);margin-bottom:32px;letter-spacing:0.06em;">By Marifel Cabral</p>
+
+        <div class="prose">
+          <p>In web development, hustle culture is everywhere. Build more. Code more. Learn more frameworks. But here's a secret: <strong>Taking a break can actually make you a better web developer.</strong></p>
+
+          <h2>Burnout in Web Development Is Real</h2>
+          <p>There was a time I coded for 10–12 hours straight — building websites, fixing bugs, learning React, studying SEO. At first, I felt productive. But then I started making more mistakes, my creativity dropped, and I felt mentally exhausted.</p>
+          <p>Burnout affects many web developers, especially freelancers and beginners trying to prove themselves.</p>
+          <hr>
+
+          <h2>Why Breaks Improve Coding Performance</h2>
+          <p>When you step away from your screen, your brain processes problems subconsciously. You return with fresh ideas and notice mistakes you missed before. Some of my best solutions came after:</p>
+          <ul>
+            <li>Taking a walk</li>
+            <li>Sleeping on it</li>
+            <li>Exercising</li>
+            <li>Talking with friends</li>
+          </ul>
+          <hr>
+
+          <h2>The Science Behind Taking Breaks</h2>
+          <p>Short breaks reduce mental fatigue, improve focus, and boost creativity. Even the <strong>Pomodoro Technique</strong> (25 minutes work, 5 minutes break) can improve development efficiency.</p>
+          <blockquote>Sustainable productivity beats nonstop coding every time.</blockquote>
+          <hr>
+
+          <h2>Practical Tips for Developers</h2>
+          <ul>
+            <li>Take a 5–10 minute break every hour</li>
+            <li>Avoid coding late at night every day</li>
+            <li>Step outside when stuck on a bug</li>
+            <li>Separate work time and personal time</li>
+            <li>Schedule at least one full rest day per week</li>
+          </ul>
+          <hr>
+
+          <h2>Conclusion</h2>
+          <p>Web development is a marathon, not a sprint. Taking breaks doesn't mean you're lazy — it means you're building long-term success.</p>
+          <blockquote>Work hard. But rest smart.</blockquote>
+        </div>
+      </article>
+
+      <!-- DIVIDER -->
+      <div class="article-divider" data-aos="fade-up">
+        <span>Next Article</span>
+      </div>
+
+      <!-- ARTICLE 3 -->
+      <article class="article-card mt-8" data-aos="fade-up">
+        <div class="meta-bar">
+          <span class="meta-tag"><i class="fas fa-venus"></i> Women in Tech</span>
+          <span class="meta-tag"><i class="fas fa-code"></i> Developer Life</span>
+          <div class="meta-dot"></div>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.65rem;color:var(--text-muted);letter-spacing:0.08em;">2025 · 5 min read</span>
+        </div>
+
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:var(--text-primary);margin-bottom:6px;line-height:1.25;">
+          Being a Woman in Web Development: Finding My Place in a Male-Dominated Field
+        </h2>
+        <p style="font-family:'Montserrat',sans-serif;font-size:0.72rem;color:var(--text-muted);margin-bottom:32px;letter-spacing:0.06em;">By Marifel Cabral</p>
+
+        <div class="prose">
+          <p>When I first walked into my IT class, I quickly noticed something: I was one of the few women in the room. At the time, I didn't think much of it. I was just excited to learn how to build things on the web. But as I went further into my studies, I started to feel the quiet weight of being a woman in a male-dominated field.</p>
+          <p>This is my honest experience — the doubts, the moments I almost gave up, and why I chose to keep going anyway.</p>
+
+          <h2>The Unspoken Pressure</h2>
+          <p>Nobody told me directly that I didn't belong. But sometimes it was in the small things — being talked over during group projects, having my ideas questioned more than my male classmates', or feeling like I had to prove myself twice as hard just to be taken seriously.</p>
+          <p>There were moments I asked myself: <strong>Am I good enough to be here?</strong> Not because someone said I wasn't — but because the environment made me doubt myself.</p>
+          <hr>
+
+          <h2>Imposter Syndrome Is Real</h2>
+          <p>Imposter syndrome hit me hard, especially when I was surrounded by classmates who seemed to pick up concepts faster, or who had been coding since high school. I felt behind. I felt like an outsider pretending to belong in a world that wasn't built for people like me.</p>
+          <p>But here's what I eventually realized:</p>
+          <ul>
+            <li>Most developers — male or female — feel this way at some point</li>
+            <li>Speed of learning doesn't determine potential</li>
+            <li>Asking questions is a sign of strength, not weakness</li>
+            <li>The field needs diverse voices, not just uniform ones</li>
+          </ul>
+          <blockquote>Belonging isn't something you earn. It's something you claim.</blockquote>
+          <hr>
+
+          <h2>What Kept Me Going</h2>
+          <p>Honestly? It was the work itself. The moment a layout finally clicked into place. The first time a client said "this is exactly what I wanted." The feeling of pushing a project live and knowing I built that — from scratch, with my own hands and my own mind.</p>
+          <p>I also found community in other women in tech — through online spaces, mentors, and classmates who understood the unique challenges we face. Representation matters. Seeing other women lead projects, speak at conferences, and build companies reminded me that I had every right to be here too.</p>
+          <hr>
+
+          <h2>To Every Woman Considering Tech</h2>
+          <p>If you're a woman thinking about entering web development or any tech field — <strong>do it</strong>. Not despite being a woman. Because of everything you bring as one.</p>
+          <p>We bring empathy to UX design. We bring perspective to team dynamics. We bring attention to detail, communication, and a user-first mindset that the industry genuinely needs more of.</p>
+          <ul>
+            <li>You don't have to code since childhood to be a great developer</li>
+            <li>You don't have to be the loudest person in the room to lead</li>
+            <li>You don't have to change who you are to fit into tech — tech needs to expand to fit you</li>
+          </ul>
+          <hr>
+
+          <h2>Conclusion</h2>
+          <p>Being a woman in web development is not always easy. But it is worth it. Every line of code I write is a quiet declaration: <strong>I belong here.</strong> And so do you.</p>
+          <blockquote>The future of tech is built by everyone — and that includes us.</blockquote>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+ 
+<!-- FOOTER -->
+<footer class="px-6 md:px-10 lg:px-20 py-12 md:py-14 mt-6">
+
+  <!-- TOP ROW: Logo | Nav | Socials -->
+  <div class="flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
+
+    <!-- Logo -->
+    <a href="index.html" class="flex-shrink-0">
+      <img src="assets/images/logo(dark).png" class="h-10 w-auto block dark:hidden" alt="Marifel Cabral Logo">
+      <img src="assets/images/logo.png"        class="h-10 w-auto hidden dark:block"  alt="Marifel Cabral Logo">
+    </a>
+
+    <!-- Nav links — centered on desktop, stacked neatly on mobile -->
+    <nav class="flex flex-wrap justify-center gap-x-6 gap-y-3" aria-label="Footer navigation">
+      <a href="index.html"        class="nav-pill" >HOME</a>
+      <a href="about.html"        class="nav-pill " >ABOUT ME</a>
+      <a href="project.html"      class="nav-pill">PROJECTS</a>
+      <a href="testimonials.html" class="nav-pill">TESTIMONIALS</a>
+      <a href="blog.html"         class="nav-pill active">BLOG</a>
+      <a href="resume.html"       class="nav-pill">RESUME</a>
+      <a href="contact.html"      class="nav-pill">CONTACT</a>
+    </nav>
+
+    <!-- Social icons -->
+    <div class="flex gap-3 flex-shrink-0">
+      <a href="https://www.facebook.com/MarifelCabral/"   class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/mrfl_c"          class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/marifelcabral06"         class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/marifelcabral/" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+  </div>
+
+  <!-- Divider -->
+  <div class="glow-line my-8 md:my-10 opacity-20"></div>
+
+  <!-- Copyright -->
+  <div class="text-center">
+    <p style="font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:0.12em;color:var(--text-muted);">
+      &#169; 2025 MARIFEL CABRAL &middot; ALL RIGHTS RESERVED
+    </p>
+  </div>
+
+</footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration:850, once:true, easing:'ease-out-cubic' });
+
+    const html   = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const icon   = document.getElementById('themeIcon');
+    function applyTheme(dark) {
+      if (dark) { html.classList.add('dark'); icon.className='fas fa-sun'; localStorage.setItem('theme','dark'); }
+      else { html.classList.remove('dark'); icon.className='fas fa-moon'; localStorage.setItem('theme','light'); }
+    }
+    applyTheme(!localStorage.getItem('theme') || localStorage.getItem('theme') === 'dark');
+    toggle.addEventListener('click', () => applyTheme(!html.classList.contains('dark')));
+
+    // Hamburger
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      hamburger.classList.toggle('open', menuOpen);
+      mobileMenu.classList.toggle('open', menuOpen);
+      hamburger.setAttribute('aria-expanded', menuOpen);
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menuOpen = false;
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }));
+  </script>
+</body>
+</html>

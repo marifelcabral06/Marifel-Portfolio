@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marifel Cabral — Full Stack Developer</title>
+  <meta name="description" content="Marifel Cabral is an aspiring Full-Stack Web Developer from Angeles City, Pampanga, Philippines. Skilled in HTML, CSS, JavaScript, PHP, Flutter, and more." />
+  <meta name="keywords" content="Marifel Cabral, Full Stack Developer, Web Developer, PHP, JavaScript, Flutter, Tailwind CSS, Portfolio, Angeles City, Pampanga" />
+  <meta name="author" content="Marifel Cabral" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://marifelcabral.com/index.html" />
+  <meta property="og:title" content="Marifel Cabral — Full Stack Developer" />
+  <meta property="og:description" content="Aspiring Full-Stack Web Developer passionate about crafting responsive, user-friendly digital experiences." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://marifelcabral.com" />
+  <meta property="og:image" content="assets/images/hero.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Marifel Cabral — Full Stack Developer" />
+  <meta name="twitter:description" content="Aspiring Full-Stack Web Developer passionate about crafting responsive, user-friendly digital experiences." />
+  <meta name="twitter:image" content="assets/images/hero.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    .dark {
+      --accent:        #3b82f6;
+      --bg:            #070d1a;
+      --bg-card:       rgba(13,24,41,0.7);
+      --bg-header:     rgba(7,13,26,0.85);
+      --border:        rgba(59,130,246,0.18);
+      --border-card:   rgba(59,130,246,0.12);
+      --text-primary:  #ffffff;
+      --text-secondary:rgba(255,255,255,0.55);
+      --text-muted:    rgba(255,255,255,0.32);
+      --orb1:          rgba(59,130,246,0.22);
+      --orb2:          rgba(99,102,241,0.15);
+      --orb3:          rgba(240,192,96,0.08);
+      --glow:          linear-gradient(90deg,transparent,rgba(59,130,246,0.5),transparent);
+      --footer-bg:     rgba(5,10,20,0.98);
+      --footer-border: rgba(59,130,246,0.1);
+      --img-overlay:   linear-gradient(to bottom,transparent 40%,#070d1a 100%);
+      --mobile-bg:     rgba(5,10,20,0.98);
+    }
+    html:not(.dark) {
+      --accent:        #2563eb;
+      --bg:            #f0f4fb;
+      --bg-card:       rgba(255,255,255,0.9);
+      --bg-header:     rgba(240,244,251,0.92);
+      --border:        rgba(37,99,235,0.18);
+      --border-card:   rgba(37,99,235,0.12);
+      --text-primary:  #0d1829;
+      --text-secondary:#374151;
+      --text-muted:    #9ca3af;
+      --orb1:          rgba(59,130,246,0.1);
+      --orb2:          rgba(99,102,241,0.07);
+      --orb3:          rgba(240,192,96,0.04);
+      --glow:          linear-gradient(90deg,transparent,rgba(37,99,235,0.25),transparent);
+      --footer-bg:     #e2e8f4;
+      --footer-border: rgba(37,99,235,0.12);
+      --img-overlay:   linear-gradient(to bottom,transparent 40%,#f0f4fb 100%);
+      --mobile-bg:     rgba(240,244,251,0.98);
+    }
+
+    * { box-sizing:border-box; }
+    body { background:var(--bg); color:var(--text-primary); overflow-x:hidden; transition:background 0.4s,color 0.4s; font-family:'Montserrat',sans-serif; }
+    body::before { content:''; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0.02;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    .orb { position:fixed; border-radius:50%; filter:blur(110px); pointer-events:none; animation:drift 12s ease-in-out infinite alternate; transition:background 0.6s; }
+    .orb-1 { width:600px; height:600px; background:radial-gradient(circle,var(--orb1),transparent 70%); top:-200px; left:-100px; }
+    .orb-2 { width:500px; height:500px; background:radial-gradient(circle,var(--orb2),transparent 70%); bottom:-100px; right:0; animation-delay:-4s; }
+    .orb-3 { width:350px; height:350px; background:radial-gradient(circle,var(--orb3),transparent 70%); top:40%; left:45%; animation-delay:-7s; }
+    @keyframes drift { from{transform:translate(0,0) scale(1)} to{transform:translate(40px,30px) scale(1.05)} }
+
+    header { background:var(--bg-header); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); transition:background 0.4s,border-color 0.4s; }
+
+    .nav-pill { position:relative; padding-bottom:4px; font-size:0.75rem; letter-spacing:0.12em; font-weight:500; color:var(--text-secondary); transition:color 0.25s; font-family:'Montserrat',sans-serif; }
+    .nav-pill::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--accent); transition:width 0.3s ease; }
+    .nav-pill:hover { color:var(--text-primary); }
+    .nav-pill:hover::after,.nav-pill.active::after { width:100%; }
+    .nav-pill.active { color:var(--text-primary); }
+
+    .theme-btn { width:36px; height:36px; display:flex; align-items:center; justify-content:center; border-radius:50%; border:1px solid var(--border); color:var(--text-secondary); transition:all 0.3s; font-size:0.8rem; background:transparent; cursor:pointer; flex-shrink:0; }
+    .theme-btn:hover { border-color:var(--accent); color:var(--accent); }
+
+    .hamburger { width:36px; height:36px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; cursor:pointer; border:1px solid var(--border); border-radius:8px; background:transparent; transition:border-color 0.3s; padding:0; flex-shrink:0; }
+    .hamburger span { display:block; width:16px; height:1.5px; background:var(--text-secondary); border-radius:2px; transition:all 0.3s; transform-origin:center; }
+    .hamburger:hover { border-color:var(--accent); }
+    .hamburger:hover span { background:var(--accent); }
+    .hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(4.5px,4.5px); }
+    .hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(4.5px,-4.5px); }
+
+    #mobileMenu { position:fixed; inset:0; z-index:40; background:var(--mobile-bg); backdrop-filter:blur(24px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; opacity:0; pointer-events:none; transition:opacity 0.3s ease; }
+    #mobileMenu.open { opacity:1; pointer-events:all; }
+    #mobileMenu .m-link { font-family:'Montserrat',sans-serif; font-size:1.5rem; font-weight:800; letter-spacing:0.18em; color:var(--text-secondary); text-transform:uppercase; padding:10px 0; transition:color 0.2s,transform 0.3s,opacity 0.3s; transform:translateY(12px); opacity:0; }
+    #mobileMenu.open .m-link { transform:translateY(0); opacity:1; }
+    #mobileMenu .m-link:hover,#mobileMenu .m-link.active { color:var(--accent); }
+    #mobileMenu .m-link:nth-child(1){transition-delay:0.04s}
+    #mobileMenu .m-link:nth-child(2){transition-delay:0.08s}
+    #mobileMenu .m-link:nth-child(3){transition-delay:0.12s}
+    #mobileMenu .m-link:nth-child(4){transition-delay:0.16s}
+    #mobileMenu .m-link:nth-child(5){transition-delay:0.20s}
+    #mobileMenu .m-link:nth-child(6){transition-delay:0.24s}
+    #mobileMenu .m-link:nth-child(7){transition-delay:0.28s}
+    .m-socials { display:flex; gap:14px; margin-top:20px; opacity:0; transform:translateY(12px); transition:opacity 0.3s 0.32s,transform 0.3s 0.32s; }
+    #mobileMenu.open .m-socials { opacity:1; transform:translateY(0); }
+
+    .tag-badge { display:inline-flex; align-items:center; gap:8px; font-family:'Montserrat',sans-serif; font-size:0.7rem; letter-spacing:0.2em; padding:6px 16px; border-radius:999px; border:1px solid rgba(59,130,246,0.4); background:rgba(59,130,246,0.08); color:var(--accent); }
+    .tag-badge .dot { width:6px; height:6px; border-radius:50%; background:#facc15; animation:blink 1.8s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .hero-name { font-family:'Montserrat',sans-serif; font-size:clamp(3rem,7vw,6rem); font-weight:900; line-height:1.0; letter-spacing:-0.02em; color:var(--text-primary); }
+    .hero-name em { font-style:italic; color:var(--accent); }
+    .hero-sub { font-family:'Montserrat',sans-serif; font-size:clamp(0.9rem,2vw,1.3rem); font-weight:700; font-style:italic; letter-spacing:0.05em; color:var(--text-muted); }
+    .hero-desc { color:var(--text-secondary); font-size:0.9rem; line-height:1.75; font-weight:300; font-family:'Montserrat',sans-serif; }
+
+    .hero-img-wrapper { position:relative; width:min(360px,100%); }
+    .hero-img-wrapper::before { content:''; position:absolute; inset:-2px; border-radius:20px; z-index:0; background:linear-gradient(135deg,rgba(59,130,246,0.7),rgba(99,102,241,0.4),transparent 60%); }
+    .hero-img-wrapper::after { content:''; position:absolute; inset:20px -20px -20px 20px; border:1px solid rgba(59,130,246,0.25); border-radius:20px; z-index:-1; }
+    .hero-img-wrapper img { position:relative; z-index:1; width:100%; border-radius:18px; display:block; }
+    .hero-img-glow { position:absolute; inset:0; border-radius:18px; z-index:2; pointer-events:none; background:radial-gradient(circle at 50% 100%,rgba(59,130,246,0.3),transparent 70%); }
+    @media(max-width:768px){ .hero-img-wrapper::after{ display:none; } }
+
+    .btn-primary { display:inline-flex; align-items:center; gap:10px; padding:14px 32px; border-radius:999px; background:var(--accent); color:#fff; font-family:'Montserrat',sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; transition:all 0.3s; position:relative; overflow:hidden; }
+    .btn-primary::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent); opacity:0; transition:opacity 0.3s; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(59,130,246,0.45); }
+    .btn-primary:hover::before { opacity:1; }
+
+    .btn-outline { display:inline-flex; align-items:center; gap:10px; padding:13px 28px; border-radius:999px; border:1.5px solid var(--border); color:var(--text-secondary); font-family:'Montserrat',sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; transition:all 0.3s; }
+    .btn-outline:hover { border-color:var(--accent); color:var(--text-primary); background:rgba(59,130,246,0.08); }
+
+    .social-icon { width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:50%; font-size:0.9rem; border:1px solid var(--border); color:var(--text-muted); transition:all 0.25s; }
+    .social-icon:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-3px); box-shadow:0 6px 20px rgba(59,130,246,0.2); }
+
+    .section-eyebrow { font-family:'Montserrat',sans-serif; font-size:0.68rem; letter-spacing:0.25em; color:var(--accent); text-transform:uppercase; display:flex; align-items:center; gap:10px; font-weight:600; }
+    .section-eyebrow::before { content:''; display:block; width:28px; height:1px; background:var(--accent); }
+
+    /* ── SERVICE CARDS ── */
+    .service-card { background:var(--bg-card); border:1px solid var(--border-card); border-radius:20px; padding:28px; backdrop-filter:blur(14px); transition:all 0.35s; position:relative; overflow:hidden; display:flex; flex-direction:column; gap:12px; }
+    .service-card::before { content:''; position:absolute; inset:0; border-radius:20px; border-top:1px solid transparent; transition:border-color 0.35s; }
+    .service-card:hover { transform:translateY(-6px); box-shadow:0 24px 60px rgba(0,0,0,0.14),0 0 40px rgba(59,130,246,0.07); border-color:rgba(59,130,246,0.35); }
+    .service-card:hover::before { border-top-color:var(--accent); }
+
+    .service-icon-wrap { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.2); color:var(--accent); font-size:1.1rem; flex-shrink:0; transition:all 0.3s; }
+    .service-card:hover .service-icon-wrap { background:rgba(59,130,246,0.18); transform:scale(1.08); }
+
+    .service-num { position:absolute; top:20px; right:22px; font-family:'Montserrat',sans-serif; font-size:0.6rem; font-weight:700; letter-spacing:0.2em; color:var(--text-muted); }
+
+    .service-title { font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:700; color:var(--text-primary); margin:0; line-height:1.3; }
+    .service-desc { font-family:'Montserrat',sans-serif; font-size:0.82rem; line-height:1.8; color:var(--text-secondary); font-weight:300; margin:0; flex:1; }
+
+    .service-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+    .service-tags span { font-family:'Montserrat',sans-serif; font-size:0.62rem; font-weight:600; letter-spacing:0.1em; padding:4px 10px; border-radius:999px; background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.18); color:var(--accent); }
+
+    /* ── PROJECTS ── */
+    .project-card { background:var(--bg-card); border:1px solid var(--border-card); border-radius:20px; overflow:hidden; backdrop-filter:blur(12px); transition:all 0.4s ease; }
+    .project-card:hover { border-color:rgba(59,130,246,0.4); transform:translateY(-6px); box-shadow:0 30px 60px rgba(0,0,0,0.15),0 0 40px rgba(59,130,246,0.06); }
+    .project-card .img-wrap { position:relative; overflow:hidden; }
+    .project-card .img-wrap::after { content:''; position:absolute; inset:0; background:var(--img-overlay); opacity:0.9; }
+    .project-card img { width:100%; height:240px; object-fit:cover; transition:transform 0.6s ease; }
+    .project-card:hover img { transform:scale(1.05); }
+    .project-num { font-family:'Montserrat',sans-serif; font-size:4rem; font-weight:900; font-style:italic; color:rgba(59,130,246,0.1); line-height:1; flex-shrink:0; }
+    .project-tech { font-family:'Montserrat',sans-serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--accent); text-transform:uppercase; margin-bottom:12px; font-weight:600; }
+    .project-title { font-family:'Montserrat',sans-serif; font-size:clamp(1.2rem,2.5vw,1.6rem); font-weight:700; color:var(--text-primary); margin-bottom:10px; }
+    .project-desc { font-family:'Montserrat',sans-serif; color:var(--text-secondary); font-size:0.85rem; line-height:1.75; margin-bottom:20px; font-weight:300; }
+    .project-link { display:inline-flex; align-items:center; gap:8px; color:var(--accent); font-family:'Montserrat',sans-serif; font-size:0.82rem; font-weight:500; transition:gap 0.25s; }
+    .project-link:hover { gap:14px; }
+    .slider-dot { width:6px; height:6px; border-radius:999px; background:var(--border); cursor:pointer; transition:all 0.3s; }
+    .slider-dot.active { width:24px; background:var(--accent); }
+    .nav-arrow-btn { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; border:1px solid var(--border); color:var(--text-muted); font-size:1.2rem; transition:all 0.3s; background:transparent; cursor:pointer; }
+    .nav-arrow-btn:hover { border-color:var(--accent); color:var(--accent); }
+
+    /* ── PROCESS ── */
+    .glow-line { height:1px; background:var(--glow); }
+    .process-timeline { position:relative; display:flex; flex-direction:column; gap:0; }
+    .process-line { position:absolute; left:50%; transform:translateX(-50%); top:12px; bottom:12px; width:1px; background:linear-gradient(to bottom,var(--accent),rgba(59,130,246,0.1)); z-index:0; }
+    .process-item { display:grid; grid-template-columns:1fr 48px 1fr; align-items:center; gap:32px; padding:36px 0; position:relative; z-index:1; }
+    .process-item:not(:last-child) { border-bottom:1px solid var(--border-card); }
+    .process-left { text-align:right; }
+    .process-num { font-family:'Montserrat',sans-serif; font-size:0.65rem; letter-spacing:0.2em; color:var(--text-muted); margin-bottom:6px; font-weight:600; }
+    .process-title { font-family:'Montserrat',sans-serif; font-size:clamp(1.4rem,3vw,2.2rem); font-weight:900; color:var(--accent); line-height:1; }
+    .process-dot-wrap { display:flex; align-items:center; justify-content:center; }
+    .process-dot { width:14px; height:14px; border-radius:50%; background:var(--bg); border:2px solid var(--accent); box-shadow:0 0 0 4px rgba(59,130,246,0.15); flex-shrink:0; transition:all 0.3s; }
+    .process-item:hover .process-dot { background:var(--accent); box-shadow:0 0 0 8px rgba(59,130,246,0.12); }
+    .process-right { text-align:left; }
+    .process-desc { font-family:'Montserrat',sans-serif; font-size:0.88rem; line-height:1.85; color:var(--text-secondary); font-weight:300; max-width:380px; }
+    @media(max-width:640px){
+      .process-line{display:none}
+      .process-item{grid-template-columns:1fr;gap:10px;padding:24px 0}
+      .process-left{text-align:left}
+      .process-dot-wrap{justify-content:flex-start}
+      .process-desc{max-width:100%}
+    }
+
+    footer { background:var(--footer-bg); border-top:1px solid var(--footer-border); transition:background 0.4s,border-color 0.4s; }
+    .footer-copy { font-family:'Montserrat',sans-serif; font-size:0.68rem; letter-spacing:0.12em; color:var(--text-muted); }
+    ::-webkit-scrollbar { width:4px; }
+    ::-webkit-scrollbar-track { background:var(--bg); }
+    ::-webkit-scrollbar-thumb { background:rgba(59,130,246,0.4); border-radius:2px; }
+    .skip-link { position:absolute; top:-100px; left:16px; background:var(--accent); color:#fff; padding:10px 18px; border-radius:8px; font-size:0.82rem; font-weight:600; z-index:9999; transition:top 0.2s; }
+    .skip-link:focus { top:16px; }
+    *:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }
+  </style>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" role="dialog" aria-modal="true">
+    <a href="index.html"        class="m-link active">HOME</a>
+    <a href="about.html"        class="m-link">ABOUT ME</a>
+    <a href="project.html"      class="m-link">PROJECTS</a>
+    <a href="testimonials.html" class="m-link">TESTIMONIALS</a>
+    <a href="blog.html"         class="m-link">BLOG</a>
+    <a href="resume.html"       class="m-link">RESUME</a>
+    <a href="contact.html"      class="m-link">CONTACT</a>
+    <div class="m-socials">
+      <a href="https://www.facebook.com/MarifelCabral/"    class="social-icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/mrfl_c"           class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/marifelcabral06"          class="social-icon"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/marifelcabral/"  class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+
+  <div style="position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 lg:px-20 py-4 md:py-5" data-aos="fade-down">
+    <a href="index.html" class="flex-shrink-0">
+      <img src="assets/images/logo(dark).png" class="h-9 w-auto block dark:hidden" alt="Logo">
+      <img src="assets/images/logo.png"        class="h-9 w-auto hidden dark:block"  alt="Logo">
+    </a>
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+      <a href="index.html"        class="nav-pill active">HOME</a>
+      <a href="about.html"        class="nav-pill">ABOUT ME</a>
+      <a href="project.html"      class="nav-pill">PROJECTS</a>
+      <a href="testimonials.html" class="nav-pill">TESTIMONIALS</a>
+      <a href="blog.html"         class="nav-pill">BLOG</a>
+      <a href="resume.html"       class="nav-pill">RESUME</a>
+      <a href="contact.html"      class="nav-pill">CONTACT</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button id="themeToggle" class="theme-btn" aria-label="Toggle dark/light mode">
+        <i id="themeIcon" class="fas fa-moon"></i>
+      </button>
+      <button id="hamburger" class="hamburger lg:hidden" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ══ HERO ══ -->
+<section class="relative min-h-screen flex items-center pt-20 pb-8 px-6 md:px-10 lg:px-20 overflow-hidden"><div class="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between w-full gap-6 md:gap-8 max-w-6xl mx-auto">
+        <div class="w-full md:max-w-[560px] text-center md:text-left" data-aos="fade-right" data-aos-duration="900">
+          <div class="tag-badge mb-6 md:mb-8 inline-flex">
+            <span class=""></span> FULL STACK DEVELOPER
+          </div>
+          <h1 class="hero-name mb-4">Hi, I'm<br><em>Marifel</em>.</h1>
+          <p class="hero-sub mb-5 md:mb-6">"Building digital experiences, one line at a time."</p>
+          <p class="hero-desc mb-8 md:mb-10 max-w-md mx-auto md:mx-0">
+            Aspiring web developer passionate about crafting responsive,
+            user-friendly websites. I turn complex problems into clean,
+            elegant interfaces with modern technologies.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 mb-8 md:mb-10">
+            <a href="contact.html" class="btn-primary w-full sm:w-auto justify-center">
+              Let's Work Together <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+            <a href="resume.html" class="btn-outline w-full sm:w-auto justify-center">View Resume</a>
+          </div>
+          <div class="flex items-center justify-center md:justify-start gap-3">
+            <a href="https://www.facebook.com/MarifelCabral/"   class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/mrfl_c"          class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/marifelcabral06"         class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/marifelcabral/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+<div class="relative flex-shrink-0 w-full md:w-auto flex justify-center md:justify-end"          <div class="hero-img-wrapper" style="max-width:320px;">
+            <img src="assets/images/hero.png" alt="Marifel Cabral">
+            <div class="hero-img-glow"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ SERVICES ══ -->
+<section class="relative px-6 md:px-10 lg:px-20 pb-12 md:pb-16">      <div class="glow-line mb-16 opacity-30"></div>
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <div class="section-eyebrow justify-center mb-4">What I Do</div>
+          <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--text-primary);line-height:1.1;">
+            Services I <em style="color:var(--accent);font-style:italic;">Offer</em>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="service-icon-wrap"><i class="fas fa-code"></i></div>
+            <div class="service-num">01</div>
+            <h3 class="service-title">Web Development</h3>
+            <p class="service-desc">Building responsive, fast, and accessible websites using modern technologies like HTML, CSS, JavaScript, and PHP.</p>
+            <div class="service-tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
+            </div>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="80">
+            <div class="service-icon-wrap"><i class="fas fa-layer-group"></i></div>
+            <div class="service-num">02</div>
+            <h3 class="service-title">UI/UX Design</h3>
+            <p class="service-desc">Designing clean, user-centered interfaces with strong visual hierarchy, smooth interactions, and thoughtful layouts.</p>
+            <div class="service-tags">
+              <span>Figma</span><span>Tailwind</span><span>Bootstrap</span>
+            </div>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="160">
+            <div class="service-icon-wrap"><i class="fab fa-wordpress"></i></div>
+            <div class="service-num">03</div>
+            <h3 class="service-title">WordPress</h3>
+            <p class="service-desc">Creating and customizing WordPress sites with Elementor — from landing pages to full business websites.</p>
+            <div class="service-tags">
+              <span>WordPress</span><span>Elementor</span><span>CMS</span>
+            </div>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="240">
+            <div class="service-icon-wrap"><i class="fas fa-magnifying-glass-chart"></i></div>
+            <div class="service-num">04</div>
+            <h3 class="service-title">SEO Optimization</h3>
+            <p class="service-desc">Improving website visibility through on-page SEO, semantic HTML, performance tuning, and keyword strategy.</p>
+            <div class="service-tags">
+              <span>On-page SEO</span><span>Analytics</span><span>Performance</span>
+            </div>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="320">
+            <div class="service-icon-wrap"><i class="fas fa-mobile-screen"></i></div>
+            <div class="service-num">05</div>
+            <h3 class="service-title">Mobile Dev</h3>
+            <p class="service-desc">Developing cross-platform mobile apps using Flutter — clean UI, smooth performance, and native-like experience.</p>
+            <div class="service-tags">
+              <span>Flutter</span><span>Dart</span><span>Cross-platform</span>
+            </div>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-icon-wrap"><i class="fas fa-database"></i></div>
+            <div class="service-num">06</div>
+            <h3 class="service-title">Backend &amp; DB</h3>
+            <p class="service-desc">Developing server-side logic, REST APIs, and database architecture with Node.js, Express, and SQL/Firebase.</p>
+            <div class="service-tags">
+              <span>Node.js</span><span>SQL</span><span>Firebase</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PROJECTS ══ -->
+<section class="relative px-6 md:px-10 lg:px-20 py-12 md:py-16 lg:py-24">     <div class="glow-line mb-10 md:mb-12 lg:mb-16 opacity-30"></div>
+      <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mb-10 md:mb-14" data-aos="fade-up">
+        <div>
+          <div class="section-eyebrow mb-3">Selected Work</div>
+          <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.1;color:var(--text-primary);">
+            Featured <em style="color:var(--accent);font-style:italic;">Projects</em>
+          </h2>
+        </div>
+        <div class="flex items-center gap-3 flex-shrink-0">
+          <button class="nav-arrow-btn" onclick="prevProject()" aria-label="Previous">&#8249;</button>
+          <div class="flex gap-2" id="sliderDots">
+            <div class="slider-dot active" onclick="goToProject(0)"></div>
+            <div class="slider-dot"        onclick="goToProject(1)"></div>
+            <div class="slider-dot"        onclick="goToProject(2)"></div>
+          </div>
+          <button class="nav-arrow-btn" onclick="nextProject()" aria-label="Next">&#8250;</button>
+        </div>
+      </div>
+
+      <div class="overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <div id="projectTrack" class="flex" style="transition:transform 0.7s cubic-bezier(0.77,0,0.18,1)">
+
+          <div class="min-w-full px-1 md:px-2">
+            <div class="project-card max-w-3xl mx-auto">
+              <div class="img-wrap"><img src="assets/images/project1.png" alt="Portfolio Website"></div>
+              <div class="p-5 md:p-8 flex items-start justify-between gap-4 md:gap-6">
+                <div class="flex-1 min-w-0">
+                  <p class="project-tech">HTML &middot; Tailwind &middot; JavaScript</p>
+                  <h3 class="project-title">Portfolio Website</h3>
+                  <p class="project-desc">Personal portfolio built with HTML, Tailwind CSS, and JavaScript — featuring dark/light themes, smooth animations, and a clean design system.</p>
+                  <a href="https://vinasdeluxehotel.kesug.com/" target="_blank" class="project-link">View Live Project <i class="fas fa-arrow-right text-xs"></i></a>
+                </div>
+                <div class="project-num hidden sm:block">1</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="min-w-full px-1 md:px-2">
+            <div class="project-card max-w-3xl mx-auto">
+              <div class="img-wrap"><img src="assets/images/project2.png" alt="E-Commerce UI"></div>
+              <div class="p-5 md:p-8 flex items-start justify-between gap-4 md:gap-6">
+                <div class="flex-1 min-w-0">
+                  <p class="project-tech">UI Design &middot; Responsive &middot; PHP</p>
+                  <h3 class="project-title">E-Commerce UI</h3>
+                  <p class="project-desc">Responsive e-commerce interface with a clean, conversion-focused UI — featuring product listings, cart interactions, and mobile-first design.</p>
+                  <a href="http://affordalabs.infinityfreeapp.com/" target="_blank" class="project-link">View Live Project <i class="fas fa-arrow-right text-xs"></i></a>
+                </div>
+                <div class="project-num hidden sm:block">2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="min-w-full px-1 md:px-2">
+            <div class="project-card max-w-3xl mx-auto">
+              <div class="img-wrap"><img src="assets/images/project3.png" alt="Landing Page Design"></div>
+              <div class="p-5 md:p-8 flex items-start justify-between gap-4 md:gap-6">
+                <div class="flex-1 min-w-0">
+                  <p class="project-tech">Landing Page &middot; CRO &middot; Design</p>
+                  <h3 class="project-title">Landing Page Design</h3>
+                  <p class="project-desc">Clean, high-converting landing page with intentional typography, persuasive sections, and optimized call-to-action placement.</p>
+                  <a href="https://starseatautocover.com/" target="_blank" class="project-link">View Live Project <i class="fas fa-arrow-right text-xs"></i></a>
+                </div>
+                <div class="project-num hidden sm:block">3</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="text-center mt-10 md:mt-12" data-aos="fade-up" data-aos-delay="200">
+        <a href="project.html" class="btn-outline">View All Projects <i class="fas fa-arrow-right text-xs"></i></a>
+      </div>
+    </section>
+
+    <!-- ══ WORKING PROCESS ══ -->
+    <section class="relative px-6 md:px-10 lg:px-20 py-20 md:py-24">
+      <div class="glow-line mb-16 md:mb-20 opacity-30"></div>
+      <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+        <div class="section-eyebrow justify-center mb-4">How I Work</div>
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--text-primary);line-height:1.1;">
+          My Working <em style="color:var(--accent);font-style:italic;">Process</em>
+        </h2>
+      </div>
+      <div class="process-timeline max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        <div class="process-line"></div>
+
+        <div class="process-item">
+          <div class="process-left">
+            <p class="process-num">1.</p>
+            <h3 class="process-title">Understanding<br>&amp; Research</h3>
+          </div>
+          <div class="process-dot-wrap"><div class="process-dot"></div></div>
+          <div class="process-right">
+            <p class="process-desc">I start by reviewing the project requirements, client instructions, or school task objectives. I research similar websites, design ideas, and technical solutions to understand what will work best.</p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-left">
+            <p class="process-num">2.</p>
+            <h3 class="process-title">Planning &amp;<br>Structuring</h3>
+          </div>
+          <div class="process-dot-wrap"><div class="process-dot"></div></div>
+          <div class="process-right">
+            <p class="process-desc">Before coding, I outline the layout, pages, and features needed. I decide what tools, plugins, or technologies to use and organize the workflow so development becomes smoother.</p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-left">
+            <p class="process-num">3.</p>
+            <h3 class="process-title">Building &amp;<br>Testing</h3>
+          </div>
+          <div class="process-dot-wrap"><div class="process-dot"></div></div>
+          <div class="process-right">
+            <p class="process-desc">I develop the website step by step — creating responsive layouts, adding functionality, and optimizing content. I test the site, fix issues, and refine the design until it works properly and looks professional.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+ <!-- ===== PASTE THIS TO REPLACE YOUR EXISTING FOOTER ===== -->
+
+<!-- FOOTER -->
+<footer class="px-6 md:px-10 lg:px-20 py-12 md:py-14 mt-6">
+
+  <!-- TOP ROW: Logo | Nav | Socials -->
+  <div class="flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
+
+    <!-- Logo -->
+    <a href="index.html" class="flex-shrink-0">
+      <img src="assets/images/logo(dark).png" class="h-10 w-auto block dark:hidden" alt="Marifel Cabral Logo">
+      <img src="assets/images/logo.png"        class="h-10 w-auto hidden dark:block"  alt="Marifel Cabral Logo">
+    </a>
+
+    <!-- Nav links — centered on desktop, stacked neatly on mobile -->
+    <nav class="flex flex-wrap justify-center gap-x-6 gap-y-3" aria-label="Footer navigation">
+      <a href="index.html"        class="nav-pill active">HOME</a>
+      <a href="about.html"        class="nav-pill ">ABOUT ME</a>
+      <a href="project.html"      class="nav-pill">PROJECTS</a>
+      <a href="testimonials.html" class="nav-pill">TESTIMONIALS</a>
+      <a href="blog.html"         class="nav-pill">BLOG</a>
+      <a href="resume.html"       class="nav-pill">RESUME</a>
+      <a href="contact.html"      class="nav-pill">CONTACT</a>
+    </nav>
+
+    <!-- Social icons -->
+    <div class="flex gap-3 flex-shrink-0">
+      <a href="https://www.facebook.com/MarifelCabral/"   class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/mrfl_c"          class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/marifelcabral06"         class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/marifelcabral/" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+  </div>
+
+  <!-- Divider -->
+  <div class="glow-line my-8 md:my-10 opacity-20"></div>
+
+  <!-- Copyright -->
+  <div class="text-center">
+    <p style="font-family:'Montserrat',sans-serif;font-size:0.68rem;letter-spacing:0.12em;color:var(--text-muted);">
+      &#169; 2025 MARIFEL CABRAL &middot; ALL RIGHTS RESERVED
+    </p>
+  </div>
+
+</footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration:850, once:true, easing:'ease-out-cubic' });
+
+    const html   = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const icon   = document.getElementById('themeIcon');
+    function applyTheme(dark) {
+      if (dark) { html.classList.add('dark'); icon.className='fas fa-sun'; localStorage.setItem('theme','dark'); }
+      else { html.classList.remove('dark'); icon.className='fas fa-moon'; localStorage.setItem('theme','light'); }
+    }
+    applyTheme(!localStorage.getItem('theme') || localStorage.getItem('theme')==='dark');
+    toggle.addEventListener('click', () => applyTheme(!html.classList.contains('dark')));
+
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      hamburger.classList.toggle('open', menuOpen);
+      mobileMenu.classList.toggle('open', menuOpen);
+      hamburger.setAttribute('aria-expanded', menuOpen);
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menuOpen = false;
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }));
+
+    const track = document.getElementById('projectTrack');
+    const dots  = document.querySelectorAll('.slider-dot');
+    let current = 0, autoTimer;
+    const total = track.children.length;
+    function goToProject(n) {
+      current = (n + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+    function nextProject() { goToProject(current + 1); resetAuto(); }
+    function prevProject() { goToProject(current - 1); resetAuto(); }
+    function resetAuto() { clearInterval(autoTimer); autoTimer = setInterval(() => goToProject(current + 1), 5000); }
+    autoTimer = setInterval(() => goToProject(current + 1), 5000);
+    let startX = 0;
+    track.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive:true });
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) diff > 0 ? nextProject() : prevProject();
+    });
+  </script>
+</body>
+</html>
